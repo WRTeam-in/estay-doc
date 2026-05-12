@@ -1,0 +1,127 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+  --ifm-color-primary: #0277bd;
+  --ifm-color-primary-dark: #026aaa;
+  --ifm-color-primary-darker: #0263a1;
+  --ifm-color-primary-darkest: #015285;
+  --ifm-color-primary-light: #0284d0;
+  --ifm-color-primary-lighter: #028bd9;
+  --ifm-color-primary-lightest: #10a0f0;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #29b6f6;
+  --ifm-color-primary-dark: #10acf5;
+  --ifm-color-primary-darker: #05a7f4;
+  --ifm-color-primary-darkest: #048dc9;
+  --ifm-color-primary-light: #42bef7;
+  --ifm-color-primary-lighter: #4ec3f7;
+  --ifm-color-primary-lightest: #7dd3f9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="light"] .card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+html[data-theme="light"] .card__header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .card__footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theme-doc-markdown details {
+  --ifm-alert-background-color: transparent !important;
+  --ifm-alert-border-width: 0 !important;
+  --ifm-alert-border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details {
+  margin-bottom: 1rem;
+  color: #1a202c;
+  border: 2px solid #89c7fb26 !important;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+html .theme-doc-markdown details {
+  margin-bottom: 1rem;
+  color: #1a202c;
+  border: 2px solid #00000075 !important;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details {
+  color: white;
+}
+
+html .theme-doc-markdown details summary {
+  color: #1a202c;
+  cursor: pointer;
+  font-weight: 500;
+  list-style: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: none !important;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details summary {
+  color: white;
+}
+
+html .theme-doc-markdown details summary::-webkit-details-marker {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details > summary::before {
+  border-left: 5px solid #89c7fb26;
+}
+
+html .theme-doc-markdown details > summary::before {
+  content: "";
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #00000075;
+  display: inline-block;
+  margin-top: 0.6rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+html .theme-doc-markdown details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+html .theme-doc-markdown details summary:hover {
+  color: #0277bd;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details summary:hover {
+  color: #29b6f6;
+}
+
+html .theme-doc-markdown details[open] summary {
+  border-bottom: 2px solid #00000075 !important;
+  margin-bottom: 0.5rem;
+}
+
+html[data-theme="dark"] .theme-doc-markdown details[open] summary {
+  border-bottom: 2px solid #89c7fb26 !important;
+  margin-bottom: 0.5rem;
+}
