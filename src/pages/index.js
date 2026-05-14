@@ -69,7 +69,7 @@ export default function Home() {
               <DocCard
                 title="Mobile App"
                 description="Customize and set up your eStay mobile application"
-                to="/docs/app/setup"
+                to="/docs/app/prerequisites"
                 icon="📱"
               />
               <DocCard

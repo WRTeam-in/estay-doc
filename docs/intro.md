@@ -20,7 +20,7 @@ Choose a section from the sidebar to begin:
 
 - [Admin Panel Setup](/docs/admin/installation)
 - [Server Installation](/docs/installation/install-estay-laravel)
-- [Mobile App Setup](/docs/app/setup)
+- [Mobile App Setup](/docs/app/prerequisites)
 - [Web App Setup](/docs/web/setup)
 
 ## Requirements
