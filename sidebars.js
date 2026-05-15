@@ -31,15 +31,6 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "eStay Admin Panel Installation",
-      items: [
-        "installation/backup-project",
-        "installation/backup-database",
-        "installation/install-estay-laravel",
-      ],
-    },
-    {
-      type: "category",
       label: "eStay App",
       items: [
         "app/prerequisites",
