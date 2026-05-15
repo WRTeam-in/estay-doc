@@ -6,11 +6,11 @@ sidebar_position: 5
 
 # Configure Auth Methods & Default Country
 
-Both the **allowed login methods** and the **default country** shown in the country picker (used during phone-number login, billing address, etc.) are controlled from a single admin-panel screen.
+Both the **allowed login methods** and the **default country** shown in the country picker (used during phone-number login) are controlled from a single admin-panel screen.
 
 ## How to Access
 
-1. Log in to the eStay **Admin Panel**.
+1. Log in to the your **Admin Panel**.
 2. Navigate to **Settings → System Configure**.
 
 ![System Configure Page](./images/appConfig.png)
@@ -19,7 +19,7 @@ Both the **allowed login methods** and the **default country** shown in the coun
 
 In the **Allowed Authentication Methods** section:
 
-- **Select** the login methods you want to enable (Email, Google, Apple, Phone, etc.).
+- **Select** the login methods you want to enable (Email, Google, Apple, Phone.).
 - **Deselect** any method you want to hide from the app.
 - Click **Save** — the app fetches the updated list on next launch and shows only the enabled login options.
 
@@ -32,7 +32,7 @@ Each enabled method must also be fully configured in Firebase (e.g., Google Sign
 In the **Default Country** field on the same page:
 
 - Select the country you want to set as the default in the app's country picker.
-- This affects the phone-number country code prefix shown to new users and the default region for address forms.
+- This affects the phone-number country code prefix shown to  users.
 - Click **Save** to apply.
 
 Users can still change the country manually inside the app — this setting only controls the initial default.

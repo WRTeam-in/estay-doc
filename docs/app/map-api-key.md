@@ -63,24 +63,12 @@ Replace `YOUR_API_KEY_HERE` with the API key you copied in Step 3.
 
 ### iOS — `AppDelegate.swift`
 
-Open `ios/Runner/AppDelegate.swift` and add the import + key registration:
+Open `ios/Runner/AppDelegate.swift` and search for the following line:
 
 ```swift
-import UIKit
-import Flutter
-import GoogleMaps
 
-@UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate {
-  override func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -> Bool {
     GMSServices.provideAPIKey("YOUR_API_KEY_HERE")
-    GeneratedPluginRegistrant.register(with: self)
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-  }
-}
+  
 ```
 
 Replace `YOUR_API_KEY_HERE` with the same API key.

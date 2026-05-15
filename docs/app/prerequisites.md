@@ -23,9 +23,8 @@ The eStay app was developed and tested with the following versions:
 | Software | Version | Purpose |
 |----------|---------|---------|
 | Flutter SDK | 3.41.2 (stable) | App framework |
-| Dart SDK | 3.11.0 (`^3.10.4` constraint) | Language runtime |
 | Java (JDK) | 21 (LTS) | Android build toolchain |
-| Android Studio | Latest stable | Android SDK, emulator, build tools |
+| Android Studio | 2025.2.3 | Android SDK, emulator, build tools |
 | Xcode | 26.2 | iOS build (macOS only) |
 | CocoaPods | Latest stable | iOS dependency manager |
 | Git | Latest stable | Version control |

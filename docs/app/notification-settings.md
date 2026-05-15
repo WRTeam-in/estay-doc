@@ -6,13 +6,17 @@ sidebar_position: 4
 
 # Notification Settings
 
-Configure push notifications across the admin panel, Firebase, Android, and iOS so users receive real-time updates from the eStay app.
+Configure push notifications across the admin panel, Firebase, Android, and iOS so users receive real-time updates from the app.
 
-Please visit our [Notification Settings Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/notifications) for the most up-to-date information about configuring notifications for your application.
+Please visit our [Notification Settings Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/notifications) and follow **every step in the order shown**.
 
 ## What the Guide Covers
 
-- **Admin Panel Settings** — Enable and configure notification options from the your admin panel.
-- **Firebase Configuration** — Set up Firebase Cloud Messaging (FCM) credentials and server keys.
-- **iOS App Settings** — APNs certificates, capabilities, and entitlements for iOS push delivery.
-- **Android Setup** — `google-services.json` placement, channel configuration, and runtime permissions.
+- **Admin Panel Settings** — Adding the Firebase Project ID and uploading the Service Account JSON file.
+- **Firebase Configuration** — Cloud Messaging tab setup and selecting the iOS app.
+- **iOS App Settings** — Enabling Push Notifications + Background Modes capabilities, and uploading either the `.p8` token (recommended) or `.p12` certificate to Firebase.
+- **Android Setup** — Downloading and placing `google-services.json` in `android/app/`.
+
+:::tip
+The `.p8` token-based method is preferred over `.p12` certificates — tokens don't expire and a single key works for both development and production.
+:::

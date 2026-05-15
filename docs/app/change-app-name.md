@@ -28,3 +28,14 @@ Update the displayed app name on Android, iOS, and inside the app code.
 2. Change the value of the `appName` variable to your desired app name.
 
 ![appConfig.dart App Name](./images/appname3.png)
+
+
+
+Save the changes.
+
+Rebuild the app by running the following commands:
+```
+flutter clean
+flutter pub get
+flutter run
+```

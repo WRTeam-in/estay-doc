@@ -21,4 +21,4 @@ Update the app's primary (theme) color from the admin panel — no code changes 
 Enter the color as a **hex code only** (e.g. `#FF5722`). Other formats (RGB, named colors) are not supported and will be rejected.
 :::
 
-The app fetches the updated theme color on next launch and applies it across all primary UI elements (buttons, highlights, app bar, etc.).
+The app fetches the updated theme color on next launch and applies it across all primary UI elements (buttons, highlights, etc.).

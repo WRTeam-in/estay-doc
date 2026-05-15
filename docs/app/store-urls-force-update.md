@@ -8,13 +8,12 @@ sidebar_position: 13
 
 Configure the Play Store / App Store URLs used by **Share** and **Rate App** features, and set the minimum supported app version for **Force Update**.
 
-image
-docs/app/images/appSettings.png
+![App settings](./images/appSettings.png)
 
 ## 1. App Store Links
 
 1. Open your **Admin Panel**.
-2. Navigate to **Settings → Admin Settings → App Store Links** tab.
+2. Navigate to **Settings → App Settings → App Store Links** tab.
 3. Set the following:
    - **Play Store URL** — full link to your Android app on Google Play.
    - **App Store URL** — full link to your iOS app on Apple App Store.
@@ -28,7 +27,7 @@ Without these URLs set, the in-app **Share** and **Rate App** features will not 
 
 Use the Force Update tab to prompt users on outdated app versions to upgrade before continuing.
 
-1. Stay in **Settings → Admin Settings**.
+1. Stay in **Settings → App Settings**.
 2. Switch to the **Force Update** tab.
 3. Set the following:
    - **Android Version Code** — the `versionCode` of the latest build currently live on the Play Store.

@@ -6,8 +6,19 @@ sidebar_position: 2
 
 # Firebase Setup
 
-The eStay app uses Firebase for push notifications, authentication, and other services.
+The app uses Firebase for push notifications, authentication, and other Google services. A full step-by-step guide (with screenshots) is maintained on our common docs site.
 
-For the complete step-by-step guide, please visit our [Firebase Setup Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase/).
+Please visit our [Firebase Setup Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase/) and follow **every step in the order shown**.
 
-Follow the linked guide to create a Firebase project, register Android/iOS apps, download the configuration files (`google-services.json` for Android, `GoogleService-Info.plist` for iOS), and add them to the Flutter project.
+## What the Guide Covers
+
+- Installing the Firebase CLI
+- Creating a new Firebase project
+- Registering the Flutter app with Firebase
+- Logging in via terminal and running the FlutterFire configuration commands
+- Generating and adding **Android SHA-1 / SHA-256** keys (debug, release, and Play App Signing)
+- Configuring **iOS URL schemes** and `GoogleService-Info.plist`
+
+:::tip
+Do not skip the SHA-key steps for Android or the URL scheme steps for iOS — Google Sign-In  and Apple Sign-In will silently fail without them.
+:::
