@@ -4,7 +4,7 @@ title: Add Map API Key for Address
 sidebar_position: 7
 ---
 
-# Add Map API Key for Address
+# Add Map API Key
 
 The app uses Google Maps for showing nearby locations of property. You need a Google Cloud API key with the **Maps SDK for Android** and **Maps SDK for iOS** enabled.
 

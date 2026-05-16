@@ -6,7 +6,7 @@ sidebar_position: 13
 
 # Change the App Version
 
-Update the version number before every new Play Store / App Store upload. Both Android and iOS versions are controlled from a single line in `pubspec.yaml`.
+Update the version number before every new Play Store / App Store upload. 
 
 ## Version Format
 
@@ -42,11 +42,46 @@ The value has two parts separated by `+`:
    ```
 5. Build your release artifacts:
    - Android — `flutter build appbundle --release`
-   - iOS — `flutter build ipa --release`
+   - iOS — see the iOS-specific steps below before building
 
 The new version will now show on the Play Store / App Store listing after upload.
 
-   
+---
+
+## iOS — Additional Xcode Steps
+
+iOS requires manually updating the version values in two places inside Xcode after changing `pubspec.yaml`.
+
+### Step 1 — Update the Generated file
+
+1. Open the project in Xcode.
+2. In the left sidebar, navigate to **Runner → Flutter → Generated**.
+3. Open the `Generated` file.
+4. Find and update the following two lines to match your new version:
+
+```
+FLUTTER_BUILD_NAME=1.1.0
+FLUTTER_BUILD_NUMBER=2
+```
+
+![Generated file in Xcode](images/appVersion1.png)
+
+### Step 2 — Update Build Settings
+
+1. In the left sidebar, select **Runner → Runner** (under TARGETS).
+2. Click the **Build Settings** tab at the top.
+3. Make sure **All** and **Combined** filters are selected.
+4. Scroll down to the **User-Defined** section.
+5. Update `FLUTTER_BUILD_NAME` and `FLUTTER_BUILD_NUMBER` to match your new version.
+
+![Build Settings in Xcode](images/appVersion2.png)
+
+After both steps are done, build the iOS release:
+
+```bash
+flutter build ipa --release
+```
+
 :::warning
 Always **increment the build number** for every store upload, even if the version name stays the same. The stores reject duplicate build numbers, and rebuilding without bumping will block your submission.
 :::

@@ -4,7 +4,7 @@ title: Panel URL & Deeplink Setup
 sidebar_position: 4
 ---
 
-# Panel URL & Deeplink Setup
+# Base URL & Deeplink Setup
 
 Configure the backend API URL and deeplink (Universal Link / App Link) settings used by the app.
 
@@ -16,16 +16,6 @@ The project ships with **three environments**: `dev`, `stage`, and `demo`. Each 
 Most clients won't need multiple environments — they push directly to a single production server. In that case, **just edit `env/demo.json`** and ignore the `dev` and `stage` files. The `demo` environment is the default and is what your end users will run.
 :::
 
-### Files Involved
-
-| File | Purpose |
-|------|---------|
-| `lib/core/configs/app_config.dart` | Dart-side config consumed by the app |
-| `env/dev.json` · `env/stage.json` · `env/demo.json` | Source of truth per environment |
-| `tool/apply_config.dart` | Sync script |
-| `android/app/src/main/AndroidManifest.xml` | Android deeplink intent filters |
-| `ios/Runner/Info.plist` | iOS URL scheme |
-| `ios/Runner/Runner.entitlements` | iOS Universal Links |
 
 ## Config Keys
 
@@ -83,6 +73,18 @@ The script automatically patches:
 ```bash
 flutter clean && flutter run
 ```
+
+### Files Involved
+
+| File | Purpose |
+|------|---------|
+| `lib/core/configs/app_config.dart` | Dart-side config consumed by the app |
+| `env/dev.json` · `env/stage.json` · `env/demo.json` | Source of truth per environment |
+| `tool/apply_config.dart` | Sync script |
+| `android/app/src/main/AndroidManifest.xml` | Android deeplink intent filters |
+| `ios/Runner/Info.plist` | iOS URL scheme |
+| `ios/Runner/Runner.entitlements` | iOS Universal Links |
+
 
 ## Important Notes
 
