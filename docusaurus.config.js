@@ -50,9 +50,8 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: "eStay App",
         logo: {
-          alt: "eStay App Logo",
+          alt: "eStay Logo",
           src: "images/favicon.png",
         },
         items: [
