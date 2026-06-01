@@ -59,6 +59,7 @@ const sidebars = {
       type: "category",
       label: "eStay Web",
       items: [
+        "web/prerequisites",
         "web/setup",
         "web/domain-url",
         "web/integrate-firebase",
@@ -76,7 +77,7 @@ const sidebars = {
         "web/maintenance-mode",
         "web/pwa-setup",
         "web/run-the-project",
-        "web/nextjsdeploy",
+        "web/server-deployment",
       ],
     },
     "support",
