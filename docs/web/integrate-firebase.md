@@ -17,6 +17,8 @@ Firebase is required for authentication and push notifications in eStay web. Fol
 4. Once created, click the **Web** icon (`</>`) to register a web app
 5. Enter an app nickname and click **Register app**
 
+Please visit our [Firebase Setup Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase/) and follow **every step in the order shown**.
+
 ---
 
 ## Step 2 — Get Firebase Config
