@@ -2,8 +2,8 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "eStay App Documentation",
-  tagline: "Documentation for eStay App",
+  title: "eStay Documentation",
+  tagline: "Documentation for eStay",
   favicon: "images/favicon.png",
 
   url: "https://wrteam-in.github.io",
@@ -56,10 +56,29 @@ const config = {
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            to: "/docs/admin/installation",
+            label: "Admin Panel",
             position: "left",
-            label: "Documentation",
+          },
+          {
+            to: "/docs/app/prerequisites",
+            label: "Mobile App",
+            position: "left",
+          },
+          {
+            to: "/docs/web/setup",
+            label: "Web Portal",
+            position: "left",
+          },
+          {
+            to: "/docs/support",
+            label: "Support",
+            position: "left",
+          },
+          {
+            to: "/docs/faqs",
+            label: "FAQs",
+            position: "left",
           },
           {
             type: "search",

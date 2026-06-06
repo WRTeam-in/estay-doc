@@ -1,10 +1,14 @@
 /* ─── Hero ──────────────────────────────────────────────────────────────────── */
 
+:root {
+  --primary-color: #1a73e8;
+}
+
 .heroBanner {
   position: relative;
   padding: 6rem 0 5.5rem;
   text-align: center;
-  background: linear-gradient(145deg, #1a73e8 0%, #1557b0 55%, #0d3f9e 100%);
+  background: var(--primary-color);
   color: #fff;
   overflow: hidden;
 }
@@ -59,12 +63,13 @@
 
 .btnWhite {
   background: #fff;
-  color: #1a73e8 !important;
+  color: var(--primary-color) !important;
   border: none;
   font-weight: 700;
   border-radius: 8px;
   transition: background 0.18s, transform 0.18s;
 }
+
 .btnWhite:hover {
   background: rgba(255, 255, 255, 0.92);
   transform: translateY(-1px);
@@ -79,6 +84,7 @@
   border-radius: 8px;
   transition: background 0.18s, border-color 0.18s, transform 0.18s;
 }
+
 .btnGhost:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.75);
@@ -94,11 +100,13 @@
   width: 100%;
   line-height: 0;
 }
+
 .heroWave svg {
   display: block;
   width: 100%;
   height: 64px;
 }
+
 .wavePath {
   fill: var(--ifm-background-color);
 }
@@ -143,6 +151,7 @@
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -153,10 +162,22 @@
   padding: 0.75rem;
   animation: fadeInUp 0.45s ease both;
 }
-.docCard:nth-child(1) { animation-delay: 0.05s; }
-.docCard:nth-child(2) { animation-delay: 0.15s; }
-.docCard:nth-child(3) { animation-delay: 0.25s; }
-.docCard:nth-child(4) { animation-delay: 0.35s; }
+
+.docCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.docCard:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.docCard:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.docCard:nth-child(4) {
+  animation-delay: 0.35s;
+}
 
 .cardLink {
   display: block;
@@ -164,6 +185,7 @@
   text-decoration: none;
   color: inherit;
 }
+
 .cardLink:hover {
   text-decoration: none;
 }
@@ -180,6 +202,7 @@
   overflow: hidden;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
+
 .card::after {
   content: "";
   position: absolute;
@@ -187,15 +210,17 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #1a73e8, #1557b0);
+  background: var(--primary-color);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.28s ease;
 }
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 40px rgba(26, 115, 232, 0.13);
 }
+
 .card:hover::after {
   transform: scaleX(1);
 }
@@ -237,6 +262,7 @@
   letter-spacing: 0.01em;
   transition: gap 0.2s;
 }
+
 .card:hover .cardArrow {
   gap: 8px;
 }
@@ -248,7 +274,7 @@
 }
 
 .ctaBox {
-  background: linear-gradient(145deg, #1a73e8 0%, #0d47a1 100%);
+  background: var(--primary-color);
   border-radius: 16px;
   padding: 3.5rem 2rem;
   text-align: center;
@@ -279,12 +305,13 @@
 
 .ctaBtn {
   background: #fff;
-  color: #1a73e8 !important;
+  color: var(--primary-color) !important;
   border: none;
   font-weight: 700;
   border-radius: 8px;
   transition: background 0.18s, transform 0.18s;
 }
+
 .ctaBtn:hover {
   background: rgba(255, 255, 255, 0.92);
   transform: translateY(-1px);
@@ -297,6 +324,7 @@
   background: var(--ifm-background-surface-color);
   border-color: rgba(255, 255, 255, 0.07);
 }
+
 [data-theme="dark"] .card:hover {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
@@ -307,12 +335,15 @@
   .heroBanner {
     padding: 4rem 1.5rem 4.5rem;
   }
+
   .heroTitle {
     font-size: 2.1rem;
   }
+
   .heroSubtitle {
     font-size: 1rem;
   }
+
   .ctaBox {
     padding: 2.5rem 1.5rem;
   }

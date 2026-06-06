@@ -21,7 +21,7 @@ const SECTIONS = [
       "Server setup and deployment guides for the eStay Laravel backend.",
     to: "/docs/installation/install-estay-laravel",
     icon: "🖥️",
-    accent: "#1557b0",
+    accent: "#1a73e8",
   },
   {
     title: "Mobile App",
@@ -29,7 +29,7 @@ const SECTIONS = [
       "Configure and publish the guest-facing Flutter app for Android and iOS.",
     to: "/docs/app/prerequisites",
     icon: "📱",
-    accent: "#1976d2",
+    accent: "#1a73e8",
   },
   {
     title: "Web Portal",
@@ -37,7 +37,7 @@ const SECTIONS = [
       "Set up and deploy the online booking portal built with Next.js.",
     to: "/docs/web/setup",
     icon: "🌐",
-    accent: "#0d47a1",
+    accent: "#1a73e8",
   },
 ];
 
