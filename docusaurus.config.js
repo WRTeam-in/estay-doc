@@ -7,7 +7,7 @@ const config = {
   favicon: "images/favicon.png",
 
   url: "https://wrteam-in.github.io",
-  baseUrl: "/",
+  baseUrl: "/estay-doc/",
   trailingSlash: true,
   organizationName: "WRTeam-in",
   projectName: "estay-doc",
