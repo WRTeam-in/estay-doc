@@ -67,6 +67,25 @@ To deploy the application on the VPS using the automated script:
 
 **Outcome**: The app will be running under PM2 (name: `eStay-web`), serving locally on the specified port, with Apache handling the public-facing traffic and caching.
 
+:::info
+If you encounter the error:
+
+`deploy.sh: command not found`
+
+Run the following command once to make the script executable:
+
+```bash
+chmod +x deploy.sh
+```
+
+After that, run the deployment script again:
+
+```bash
+./deploy.sh
+```
+
+:::
+
 ## Manual Deployment
 
 If you prefer to deploy manually or need to troubleshoot, follow these steps to replicate the automated process:
