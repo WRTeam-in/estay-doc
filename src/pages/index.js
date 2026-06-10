@@ -21,7 +21,7 @@ const SECTIONS = [
       "Server setup and deployment guides for the eStay Laravel backend.",
     to: "/docs/installation/install-estay-laravel",
     icon: "🖥️",
-    accent: "#1a73e8",
+    accent: "#1557b0",
   },
   {
     title: "Mobile App",
