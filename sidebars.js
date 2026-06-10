@@ -42,6 +42,7 @@ const sidebars = {
         "app/change-app-logo",
         "app/change-theme-color",
         "app/change-app-font",
+        "app/onboarding",
         "app/notification-settings",
         "app/map-api-key",
         "app/auth-methods",
