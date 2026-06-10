@@ -12,22 +12,50 @@ const sidebars = {
       type: "category",
       label: "eStay Admin Panel Setup",
       items: [
+        // ── Getting Started ──
+        "admin/overview",
         "admin/installation",
+        "admin/countries",                 // moved up: cities/taxes live *inside* a country
+        "admin/checklist-add-cities",
+        "admin/checklist-tax-configuration",
+        "admin/checklist-cancellation-policy",
+        "admin/checklist-legal-policy",
+
+        // ── Core Operations ──
         "admin/property-management",
+        "admin/registration-fields",
         "admin/booking-management",
         "admin/user-management",
+        "admin/events-and-inquiries",
+
+        // ── Marketing ──
+        "admin/promo-codes",
+        "admin/refer-and-earn",
+        "admin/marketing-notifications",
+
+        // ── Payments & Finance ──
         "admin/payment-settings",
-        "admin/notification-management",
-        "admin/system-configurations",
-        "admin/language",
-        "admin/privacy-policy",
-        "admin/terms-conditions",
-        "admin/other-pages",
-        "admin/ad-spaces",
-        "admin/staff-management",
+        "admin/payment-transactions",
+        "admin/manual-refunds",
+
+        // ── Staff & Access ──
+        "admin/roles-and-staffs",
+
+        // ── Settings & Integrations ──
         "admin/general-settings",
+        "admin/notification-management",
+        "admin/SMTP Mail-configurations",
+        "admin/language",
+        "admin/api-google-maps",
+        "admin/api-currency-exchange",
+        "admin/api-ip-geolocation",
+        "admin/cron-jobs",
+
+        // ── System ──
         "admin/update-system",
+        "admin/other-pages",
       ],
+
     },
     {
       type: "category",

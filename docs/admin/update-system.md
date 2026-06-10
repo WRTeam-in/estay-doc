@@ -9,7 +9,7 @@ The Update System lets you upgrade eStay to a newer version directly from the ad
 
 Navigate to **Settings → Update System** in the admin sidebar.
 
-![Update System](/images/panel/update-system.png)
+![Update System](/images/panel/update-upload.png)
 
 ## Before You Update
 

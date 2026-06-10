@@ -74,7 +74,7 @@ function HomepageHeader() {
           >
             Get Started
           </Link>
-        {/*   <Link
+          {/*   <Link
             className={clsx("button button--lg", styles.btnGhost)}
             to="/docs/admin/installation"
           >

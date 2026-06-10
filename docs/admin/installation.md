@@ -20,7 +20,7 @@ Install the eStay admin panel on your server via cPanel. Before starting, ensure
 
 Log in to your hosting account's cPanel dashboard.
 
-![cPanel Login](/images/panel/install-cpanel-login.png)
+![cPanel Login](/images/panel/cpanel_login.png)
 
 ---
 
@@ -32,6 +32,7 @@ Log in to your hosting account's cPanel dashboard.
 4. **Assign the user to the database** and grant **All Privileges**.
 
 ![Create Database](/images/panel/install-create-db.png)
+![Create Database](/images/panel/createdb.png)
 
 :::warning
 Note down your **DB Hostname**, **DB Name**, **DB Username**, and **DB Password** — you will need these during installation.
@@ -45,7 +46,7 @@ In cPanel, open **File Manager** and navigate to either:
 - `public_html` — for the main domain
 - Your subdomain's root folder — if installing on a subdomain
 
-![File Manager](/images/panel/install-file-manager.png)
+<!-- ![File Manager](/images/panel/install-file-manager.png) -->
 
 ---
 
@@ -53,7 +54,7 @@ In cPanel, open **File Manager** and navigate to either:
 
 Upload the downloaded zip file named **`Code vX.X - upload this on server.zip`** into the folder from Step 3.
 
-![Upload Zip](/images/panel/install-upload-zip.png)
+<!-- ![Upload Zip](/images/panel/install-upload-zip.png) -->
 
 :::info
 Only upload the file named **"upload this on server"** — do not upload the full package zip directly.
@@ -67,7 +68,7 @@ Right-click the uploaded zip file and select **Extract**. Confirm the extraction
 
 Once extracted, verify that files such as `index.php`, `artisan`, and the `app/` directory are present in the folder.
 
-![Extract Zip](/images/panel/install-extract.png)
+<!-- ![Extract Zip](/images/panel/install-extract.png) -->
 
 ---
 
@@ -99,7 +100,7 @@ The installation wizard will appear. Fill in the following fields:
 | **Admin Password** | Password for the admin account |
 | **Purchase Code** | Your Envato purchase code |
 
-![Installation Wizard](/images/panel/install-wizard.png)
+![Installation Complete](/images/panel/step1.png)
 
 ---
 
@@ -114,7 +115,13 @@ Click the **Install** button. The installer will:
 
 Once complete, you will see a success screen with a link to your admin panel.
 
-![Installation Complete](/images/panel/install-complete.png)
+![Installation Complete](/images/panel/step1.png)
+![Installation Complete](/images/panel/step2.png)
+![Installation Complete](/images/panel/step3.png)
+![Installation Complete](/images/panel/step4.png)
+![Installation Complete](/images/panel/step5.png)
+![Installation Complete](/images/panel/step6.png)
+
 
 :::info
 After installation, the `/install` route is automatically disabled for security. Attempting to visit it again will redirect you to the admin panel.
@@ -122,7 +129,20 @@ After installation, the `/install` route is automatically disabled for security.
 
 ---
 
-## Logging In
+## Logging In and setting the main superadmin account
+
+![Installation Complete](/images/panel/setup1.png)
+- create your superadmin account from here add strong password.
+![Installation Complete](/images/panel/setup2.png)
+- choose your property mode. 
+![Installation Complete](/images/panel/setup3.png)
+- choose the countries where you want to operate your business.
+- dont worry, you can always add/edit new countries later.
+![Installation Complete](/images/panel/setup4.png)
+- choose the type of property you run the business with (you can choose one only )
+![Installation Complete](/images/panel/setup5.png)
+- congratulations! you have landed to the dashboard.
+- complete the checklist to access the main admin dashboard.    
 
 Navigate to your admin panel at:
 

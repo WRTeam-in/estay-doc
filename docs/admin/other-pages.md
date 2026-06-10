@@ -117,7 +117,7 @@ Navigate to the **How It Works** section in the admin sidebar.
 
 ### Managing Steps
 
-1. Go to **How It Works** in the sidebar.
+1. Go to **Help and Supports FAQs** in the sidebar, under Support Steps:
 2. Click **Add Step**.
 3. Enter the **Title** and **Description** for the step.
 4. Upload or select an **Icon**.

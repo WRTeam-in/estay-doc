@@ -1,91 +1,108 @@
 ---
 id: user-management
-title: User Management
+title: Manage Customers
 ---
 
-# User Management
+# Manage Customers
 
-View and manage all registered guests on your eStay platform.
+The **Customers** section lets you view everyone who has signed up on your platform, review their booking activity and spending, inspect detailed insights for an individual customer, and suspend or reactivate accounts when needed.
 
-**Navigate to:** Sidebar → **Users**
-
-![User List](/images/panel/user-list.png)
+:::info Note
+All customer data is shown for your **currently selected country**. Booking counts, total spent, and insights only reflect bookings made on properties within that country. Switch the country from the topbar to view customers in another country.
+:::
 
 ---
 
-## Viewing Users
+## Step 1: Navigate to Customers
 
-The user list displays all registered accounts with key details:
+In your admin dashboard, navigate to **Customer Manage > All Customers** using the left sidebar.
+
+<!-- ![All Customers Page](/images/panel/customerstep1.png) -->
+
+---
+
+## Step 2: Understand the Customer List
+
+The customer list shows every registered customer with the following details:
 
 | Column | Description |
 |---|---|
-| **Name** | Full name of the registered user. |
-| **Email** | User's email address. |
-| **Phone** | User's phone number (if provided). |
-| **Joined Date** | Date the account was created. |
-| **Total Bookings** | Number of bookings made by this user. |
-| **Status** | Whether the account is active or blocked. |
+| **Customer** | The customer's profile photo, name, and unique ID (e.g. `ID - 001`). |
+| **Contact Info** | The customer's email address and phone number. |
+| **Status** | Whether the account is **Active** (green) or **Suspended** (red). |
+| **Booking** | The total number of bookings the customer has made in the selected country. |
+| **Total Spent** | The total amount the customer has paid for confirmed, checked-in, or completed stays. |
+| **Joined Date** | When the customer registered, along with how they signed up — Web (🌐), App (📱), or Admin (⚙). |
+| **Last Active** | How long ago the customer was last active on the platform. |
+
+:::tip
+Use the **search bar** to find a customer by name, email, or phone number. You can also use the **Status** filter to show only Active or Suspended customers, and click any sortable column header (Booking, Total Spent, Joined Date, Last Active) to reorder the list.
+:::
 
 ---
 
-## Searching and Filtering
+## Step 3: Export the Customer List
 
-Use the **search bar** to find users by name, email, or phone number.
+To download the full customer list, click the **Export** button in the toolbar, choose **CSV** or **Excel (XLSX)**, and the file will download instantly.
+
+The export includes each customer's name, email, phone, status, total bookings, total spent, and joined date.
+
+![Customer Export](/images/panel/customerstep2.png)
 
 ---
 
-## Viewing a User Profile
+## Step 4: View a Customer's Profile
 
-Click the **View** icon next to any user to open their full profile.
+Click the **View** icon (eye) next to any customer to open their detailed profile page.
 
-![User Detail](/images/panel/user-detail.png)
+At the top of the profile you'll see summary statistics for the selected country:
 
-The profile view includes:
-
-| Section | Details Shown |
+| Stat | Description |
 |---|---|
-| **Personal Info** | Name, email, phone, profile picture. |
-| **Account Info** | Registration date, account status. |
-| **Booking History** | List of all bookings made by this user with status and dates. |
+| **Total Spent** | Amount paid across confirmed, checked-in, and completed bookings. |
+| **Total Bookings** | The total number of bookings the customer has made. |
+| **Total Cancelled** | The number of bookings the customer has cancelled. |
+| **Total Refunded** | The total amount refunded to the customer. |
+| **Joined Platform** | Where the customer signed up — Website, Application, or Admin. |
+
+![Customer Profile](/images/panel/customerstep3.png)
 
 ---
 
-## Blocking and Unblocking Users
+## Step 5: Review Booking History
 
-To block a user:
+The **Bookings** tab lists every booking the customer has made in the selected country, including the booking ID, property, room type, stay dates, amount, and payment status.
 
-1. Open the user's profile or use the action button in the list.
-2. Click **Block User**.
-3. Confirm the action.
+- Click the **View** icon (eye) to open the full booking details.
+- Click the **Download** icon to download the booking's invoice.
+- Use the toolbar **Export** button to download the customer's booking history as CSV or Excel.
 
-A blocked user cannot log in or make new bookings. Their existing data is preserved.
+![Customer Booking History](/images/panel/customerstep4.png)
 
-To unblock, click **Unblock User** from the same location.
+---
+
+## Step 6: Review Customer Insights
+
+Switch to the **Insights** tab to see visual analytics for the customer, including bookings over time, a booking status breakdown (completed, cancelled, confirmed), and their most-booked properties.
+
+Use the period filter to view insights for **This Week**, **This Month**, **This Year**, or a **Custom** date range. You can also export the filtered booking data directly from this tab.
+
+![Customer Insights](/images/panel/customerstep5.png)
+
+---
+
+## Step 7: Suspend or Reactivate an Account
+
+On the customer's profile, use the **Suspend Account** action to block a customer from accessing the platform. A confirmation dialog will appear before the change is applied.
+
+If an account is already suspended, the same button changes to **Activate Account**, allowing you to restore the customer's access.
+
+![Suspend Customer](/images/panel/customerstep6.png)
 
 :::warning
-Blocking a user does not cancel their active or upcoming bookings. Handle those separately in Booking Management if needed.
+Suspending an account immediately prevents the customer from logging in or making new bookings. Their existing booking history and data remain intact and can still be viewed by admins.
 :::
-
----
-
-## Deleting a User
-
-To delete a user:
-
-1. Click the **Delete** icon next to the user in the list.
-2. Confirm the deletion.
 
 :::info
-User deletion is a **soft delete**. The user's account and booking history are retained in the database but the account becomes inaccessible.
+If a customer deletes their own account, admins can still open their profile to review past booking history and financial records.
 :::
-
----
-
-## Exporting Users
-
-To export the user list:
-
-1. Apply any search or filters as needed.
-2. Click the **Export** button in the toolbar.
-3. Select the export format: **CSV** or **Excel (XLSX)**.
-4. The file will download automatically.
