@@ -16,14 +16,6 @@ const SECTIONS = [
     accent: "#1a73e8",
   },
   {
-    title: "Installation",
-    description:
-      "Server setup and deployment guides for the eStay Laravel backend.",
-    to: "/docs/installation/install-estay-laravel",
-    icon: "🖥️",
-    accent: "#1557b0",
-  },
-  {
     title: "Mobile App",
     description:
       "Configure and publish the guest-facing Flutter app for Android and iOS.",
@@ -38,6 +30,14 @@ const SECTIONS = [
     to: "/docs/web/setup",
     icon: "🌐",
     accent: "#1a73e8",
+  },
+  {
+    title: "Support",
+    description:
+      "Whether you're setting up your first project or need help with advanced features, our support team is here to assist you.",
+    to: "/docs/support",
+    icon: "🖥️",
+    accent: "#1557b0",
   },
 ];
 
