@@ -82,6 +82,7 @@ const sidebars = {
         "app/store-urls-force-update",
         "app/run-the-app",
         "app/deployment",
+        "app/changelog",
       ],
     },
     {
