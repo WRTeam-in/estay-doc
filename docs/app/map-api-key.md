@@ -1,6 +1,6 @@
 ---
 id: map-api-key
-title: Add Map API Key for Address
+title: Add Map API Key for map view
 sidebar_position: 7
 ---
 

@@ -54,6 +54,55 @@ flutter doctor -v
 
 All checks should pass (green check marks) before moving to the next step.
 
-## Additional Reference
+## Detailed Environment Setup
 
-For a complete environment walkthrough, see our [Basic Setup Guide](http://wrteam-in.github.io/common_app_doc/GeneralSettings/basicsetup/).
+A complete walkthrough for installing Flutter, configuring the Java JDK, and setting up your IDE.
+
+### 1️⃣ Install Flutter
+
+- Download the Flutter SDK from the official site: [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- Extract the ZIP file to a suitable location (e.g., `C:\flutter` on Windows or `~/flutter` on macOS/Linux).
+- Add Flutter to your system path:
+  - **Windows:** Add `C:\flutter\bin` to `System Environment Variables`.
+  - **macOS/Linux:** Add `export PATH="$HOME/flutter/bin:$PATH"` to `~/.zshrc` or `~/.bashrc`.
+- Verify the installation:
+
+  ```sh
+  flutter doctor --verbose
+  ```
+- Ensure all dependencies are installed before proceeding.
+
+### 2️⃣ Install Java JDK
+
+- Download the latest **Java Development Kit (JDK)** from [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or [OpenJDK](https://openjdk.org/).
+- Install the JDK and note the installation path.
+- Set up environment variables:
+  - **Windows:**
+    - Add `JAVA_HOME` as the JDK installation path in system variables.
+    - Add `%JAVA_HOME%\bin` to the `Path` variable.
+  - **macOS/Linux:**
+
+    ```sh
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    export PATH=$JAVA_HOME/bin:$PATH
+    ```
+- Verify installation:
+
+  ```sh
+  java -version
+  ```
+
+### 3️⃣ Install an IDE
+
+- **Android Studio** (recommended for full Android development tools)
+  - Download from: [Android Studio](https://developer.android.com/studio)
+  - Install the Flutter & Dart plugins from **Preferences > Plugins**.
+- **Visual Studio Code** (lightweight & fast)
+  - Download from: [VS Code](https://code.visualstudio.com/)
+  - Install the Flutter and Dart extensions from the Extensions Marketplace.
+
+### 4️⃣ Final Check
+
+- Run `flutter doctor` and resolve any missing dependencies.
+- Configure Android (Android Studio + SDKs) and iOS (Xcode + simulator, macOS only).
+- Run a simple Flutter app to confirm everything works as expected.
