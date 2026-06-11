@@ -44,7 +44,7 @@ const sidebars = {
         // ── Settings & Integrations ──
         "admin/general-settings",
         "admin/notification-management",
-        "admin/SMTP Mail-configurations",
+        "admin/smtp-configurations",
         "admin/language",
         "admin/api-google-maps",
         "admin/api-currency-exchange",

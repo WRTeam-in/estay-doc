@@ -18,14 +18,13 @@ eStay is a complete property booking and rental platform that includes an Admin 
 
 Choose a section from the sidebar to begin:
 
-- [Admin Panel Setup](/docs/admin/installation)
-- [Server Installation](/docs/installation/install-estay-laravel)
+- [Admin Panel Setup](./admin/installation.md)
 - [Mobile App Setup](/docs/app/prerequisites)
 - [Web App Setup](/docs/web/setup)
 
 ## Requirements
 
-- PHP 8.1+
+- PHP 8.3+
 - MySQL 5.7+ / MariaDB 10.3+
 - Node.js 18+
 - Flutter 3.x

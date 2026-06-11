@@ -117,7 +117,7 @@ When a customer pays, the provider (Razorpay, Stripe, Flutterwave) tells your pl
 As a safety net, the platform also runs a background **reconciliation check every 5 minutes** that asks the provider directly about any still-pending payment. This means a payment will *eventually* be confirmed even without webhooks, but:
 
 - Confirmation is **delayed** (up to several minutes) instead of immediate.
-- It depends on the server's **scheduled task (cron)** being set up correctly — see the [Cron Jobs Setup](/cron-jobs-setup) guide.
+- It depends on the server's **scheduled task (cron)** being set up correctly — see the [Cron Jobs Setup](./cron-jobs.md) guide.
 - It only re-checks payments from roughly the **last hour**.
 
 For reliable, instant confirmation, **always set up the webhook and its secret.**

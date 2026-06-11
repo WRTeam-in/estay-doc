@@ -78,5 +78,5 @@ For a **Transferred** request, click **View Details** to see the full **refund s
 
 
 :::info Related
-Manual refunds exist as a fallback for refunds that couldn't be returned automatically. For how automatic payments and refunds flow through the gateways, see [Payment Gateway Settings](/payment-gateway-settings).
+Manual refunds exist as a fallback for refunds that couldn't be returned automatically. For how automatic payments and refunds flow through the gateways, see [Payment Gateway Settings](./payment-settings.md).
 :::
