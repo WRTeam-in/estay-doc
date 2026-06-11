@@ -8,7 +8,7 @@ title: Marketing Notifications
 The **Notifications** page (under **Marketing**) is where you **send messages to your customers** — push notifications to the mobile app, emails, or both. You can send immediately or schedule for later, target everyone or a specific city, and track how each message performed.
 
 :::info Note vs. Notification Settings
-This page **sends** notifications. It's different from **[Notification Settings](/notification-management)**, which only configures the Firebase connection that makes push delivery possible. You need Firebase set up there before push notifications will reach the app.
+This page **sends** notifications. It's different from **[Notification Settings](./notification-management.md)**, which only configures the Firebase connection that makes push delivery possible. You need Firebase set up there before push notifications will reach the app.
 :::
 
 :::info Country scoped
@@ -48,7 +48,7 @@ Click **Send Notification** and fill in the form.
 - **Schedule** — turn on **Schedule for Later**, pick a date/time, and save. It will send automatically at that time.
 
 :::warning Delivery depends on background tasks
-Notifications are placed on a queue and delivered by the platform's background worker. For them to actually go out — whether sent now or scheduled — the server's cron jobs must be running. See [Cron Jobs Setup](/cron-jobs-setup). For push specifically, Firebase must also be configured in [Notification Settings](/notification-management); for email, your [SMTP / Mail settings](/SMTP%20Mail-configurations) must be set.
+Notifications are placed on a queue and delivered by the platform's background worker. For them to actually go out — whether sent now or scheduled — the server's cron jobs must be running. See [Cron Jobs Setup](./cron-jobs.md). For push specifically, Firebase must also be configured in [Notification Settings](./notification-management.md); for email, your [SMTP / Mail settings](./smtp-configurations.md) must be set.
 :::
 
 ---

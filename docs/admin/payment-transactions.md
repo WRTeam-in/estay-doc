@@ -57,9 +57,9 @@ If you open a payment that belongs to a different country than the one you curre
 
 | If you want to… | Go to |
 |---|---|
-| Configure how payments are processed (gateways, webhooks) | [Payment Gateway Settings](/payment-settings) |
-| Handle a refund that couldn't be returned automatically | [Manual Refunds](/manual-refunds) |
-| See a specific customer's payment history | the customer's profile under [Customers](/user-management) |
+| Configure how payments are processed (gateways, webhooks) | [Payment Gateway Settings](./payment-settings.md) |
+| Handle a refund that couldn't be returned automatically | [Manual Refunds](./manual-refunds.md) |
+| See a specific customer's payment history | the customer's profile under [Customers](./user-management.md) |
 
 :::tip Reading the money trail
 A single booking can have **multiple** transactions — for example, an initial payment, a later balance payment, and a refund. The **Remaining** column helps you spot bookings that aren't fully paid yet.

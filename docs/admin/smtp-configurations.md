@@ -1,5 +1,5 @@
 ---
-id: SMTP Mail-configurations
+id: smtp-configurations
 title: SMTP mail Configurations
 ---
 
@@ -36,6 +36,10 @@ Go to: **Settings → System Configurations → Email Settings**
 
 :::info Gmail users
 If you use Gmail, enable **2-Step Verification** on your account and generate an **App Password** to use as the SMTP password instead of your regular password.
+:::
+
+:::warning Keep your SMTP credentials secure
+The SMTP password is a sensitive credential. Use a **dedicated app password** rather than your main email account password, and never reuse it elsewhere. The password is stored securely on your own server and is never exposed to the app or sent to any third party. If you suspect it has been compromised, revoke the app password in your mail provider's settings and generate a new one.
 :::
 
 ---

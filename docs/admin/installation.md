@@ -8,10 +8,10 @@ title: Installation
 Install the eStay admin panel on your server via cPanel. Before starting, ensure your server meets the minimum requirements.
 
 :::info Server Requirements
-- PHP **8.2** or higher
+- PHP **8.3** or higher
 - `upload_max_filesize` set to **100M**
 - MySQL 5.7+ or MariaDB 10.3+
-- BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML PHP extensions
+- BCMath, cURL, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML PHP extensions
 :::
 
 ---
@@ -111,9 +111,18 @@ Click the **Install** button. The installer will:
 1. Verify the database connection
 2. Run database migrations and seeders
 3. Generate the application key
-4. Create the admin account
+4. Create the storage symlink (so uploaded logos and property images display correctly)
+5. Create the admin account
 
 Once complete, you will see a success screen with a link to your admin panel.
+
+:::warning Storage symlink
+The installer creates the storage symlink automatically. If your hosting has the `symlink` or `exec` functions disabled, the installer will show an error — in that case, create the link manually via SSH:
+
+```
+ln -s /path/to/your/project/storage/app/public /path/to/your/project/public/storage
+```
+:::
 
 ![Installation Complete](/images/panel/step1.png)
 ![Installation Complete](/images/panel/step2.png)
@@ -151,3 +160,9 @@ http://yourdomain.com/admin
 ```
 
 Use the **Admin Email** and **Admin Password** you set during installation.
+
+---
+
+## Next Steps
+
+Some features run in the background — confirming payments after a gateway webhook, expiring abandoned bookings, sending scheduled notifications, and syncing exchange rates. These rely on **scheduled tasks (cron)** being set up on your server. After installing, set these up by following the [Cron Jobs Setup](./cron-jobs.md) guide, otherwise these actions won't happen automatically.

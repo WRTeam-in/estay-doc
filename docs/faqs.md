@@ -29,6 +29,6 @@ Yes. You can customize the app name, logo, colors, and package name as described
 <details>
 <summary>How do I update to the latest version?</summary>
 
-See the [Update System](/docs/admin/update-system) section in the Admin Panel docs.
+See the [Update System](./admin/update-system.md) section in the Admin Panel docs.
 
 </details>

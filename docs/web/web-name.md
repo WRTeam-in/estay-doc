@@ -1,6 +1,6 @@
 ---
-id: app-name
-title: App Name
+id: web-name
+title: Web Name
 ---
 
 # How to Change Website Name

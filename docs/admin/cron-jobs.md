@@ -59,7 +59,7 @@ This runs the platform's scheduled tasks. That single endpoint manages all of th
 | **Process Scheduled Marketing Messages** | Every minute | Finds marketing notifications whose send time has arrived and **queues** them for delivery (the queue worker then sends them — see Cron 2). |
 
 :::info Why this matters for payments
-**Reconcile Pending Payments** confirms a payment if its webhook didn't arrive. If the scheduler cron isn't running, a payment with a missing webhook could stay **pending indefinitely**. See [Payment Gateway Settings](/payment-gateway-settings) for how webhooks and reconciliation work together.
+**Reconcile Pending Payments** confirms a payment if its webhook didn't arrive. If the scheduler cron isn't running, a payment with a missing webhook could stay **pending indefinitely**. See [Payment Gateway Settings](./payment-settings.md) for how webhooks and reconciliation work together.
 :::
 
 ---

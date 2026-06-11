@@ -13,13 +13,13 @@ Add new languages, switch the default language, and configure the in-app fallbac
 1. Log in to the your **Admin Panel**.
 2. Navigate to **Settings → Languages**.
 3. **Download the sample translation file** for each platform (App, Web, Admin Panel) from the form.
-4. Open the downloaded file and **translate only the values** in the `key: value` pairs. **Do not change the keys** — the app looks them up by key, so any change will break the lookup.
+4. Open the downloaded file and **translate only the values** in the `key: value` pairs. **Do not change the keys** — the web looks them up by key, so any change will break the lookup.
 5. Once translated, return to the **Add Language** form, fill in the language name and code, **upload the translated file(s)**, then save.
 
-![Add Language](../app/images/addLanguage1.png)
+![Add Language](/images/web/addLanguage1.png)
 
 :::warning
-Edit only the right-hand side of each `key: value` pair. Changing, removing, or adding keys will cause missing strings in the app.
+Edit only the right-hand side of each `key: value` pair. Changing, removing, or adding keys will cause missing strings in the web.
 :::
 
 ## 2. Change the Default Language
@@ -28,19 +28,11 @@ Edit only the right-hand side of each `key: value` pair. Changing, removing, or 
 2. Scroll to the language list below the form.
 3. Find the language you want as default and click the **Set Default** button next to it.
 
-![Set Default Language](../app/images/addLanguage2.png)
-
-The app will pick this language on first launch for users.
+![Set Default Language](/images/web/addLanguage2.png) 
 
 ## 3. Fallback Default in App Code
 
-As a safety net, a default language code is hardcoded in the app's config file. This value is **only used when the settings API call fails** (e.g., no internet on first launch).
+As a safety net, a default language code is hardcoded in the web file. This value is **only used when the settings API call fails** (e.g., no internet on first launch).
 
-1. Open `lib/core/configs/app_config.dart`.
+1. Open `src/app/page.tsx`.
 2. Update the default language constant to the language code you want as fallback.
-
-![Default Language in AppConfig](../app/images/defaultinApp.png)
-
-:::info
-The admin-panel default (Step 2) is the **primary** source of truth. The `app_config.dart` value (Step 3) is only a fallback for offline / API-failure scenarios.
-:::

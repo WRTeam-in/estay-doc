@@ -14,7 +14,7 @@ Navigate to **Settings → Update System** in the admin sidebar.
 ## Before You Update
 
 :::warning
-Always take a full backup of your project files and database before running any update. See [Backup Project](../installation/backup-project) and [Backup Database](../installation/backup-database) for instructions.
+Always take a full backup of your project files and database before running any update.
 :::
 
 :::warning

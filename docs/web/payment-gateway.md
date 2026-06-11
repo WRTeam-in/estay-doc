@@ -26,7 +26,7 @@ Only these three can be added — pick them which most closely match your busine
 4. Enter the required credentials (API keys / secrets / publishable key, depending on the gateway).
 5. Click **Save**.
 
-![Add Payment Gateway](../app/images/paymentGateway1.png)
+![Add Payment Gateway](/images/web/paymentGateway1.png)
 
 ## 2. Activate / Deactivate an Existing Gateway
 
@@ -37,7 +37,7 @@ To turn an already-added gateway on or off without deleting its credentials:
 3. Toggle the **Status** field (Active / Inactive).
 4. Click **Save**.
 
-![Edit Payment Gateway Status](../app/images/paymentGateway2.png)
+![Edit Payment Gateway Status](/images/web/paymentGateway2.png)
 
 :::tip
 You can keep credentials saved for multiple gateways and only mark one as **Active** at a time — useful when switching providers without re-entering keys.
