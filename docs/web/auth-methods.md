@@ -13,7 +13,7 @@ Both the **allowed login methods** and the **default country** shown in the coun
 1. Log in to the your **Admin Panel**.
 2. Navigate to **Settings → System Configure**.
 
-![System Configure Page](../app/images/appConfig.png)
+![System Configure Page](/images/web/appConfig.png)
 
 ## Allowed Authentication Methods
 

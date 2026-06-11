@@ -19,5 +19,5 @@ Control the social media icons and links shown on the app's **Contact Us** scree
 
 The app fetches this list at runtime and renders the icons on the Contact Us page. Each icon opens its corresponding link in the device browser when tapped.
 
-![Social Media Links](../app/images/contactus.png)
+![Social Media Links](/images/web/contactus.png)
 

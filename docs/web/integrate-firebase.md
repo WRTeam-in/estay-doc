@@ -2,75 +2,33 @@
 id: integrate-firebase
 title: Integrate Firebase
 ---
+# How to Connect Firebase with your Web News
 
-# How to Connect Firebase with eStay Web
+1. First you need to create a Web project inside your Firebase Project.  
+   For that open your firebase project in console and click on this tiny web icon:
 
-Firebase is required for authentication and push notifications in eStay web. Follow the steps below to connect your Firebase project.
+   ![News](/images/web/firebase1.png)
 
----
+2. After clicking on Web app you will be able to see this Screen.  
+   Add your web app name and also make sure you don't forget to check the checkbox.
 
-## Step 1 — Create a Firebase Project
+   ![News](/images/web/firebase2.png)
 
-1. Go to [https://console.firebase.google.com](https://console.firebase.google.com)
-2. Click **Add project**
-3. Enter your project name and follow the setup wizard
-4. Once created, click the **Web** icon (`</>`) to register a web app
-5. Enter an app nickname and click **Register app**
+3. Now Copy this Firebase Credentials.
 
-Please visit our [Firebase Setup Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase/) and follow **every step in the order shown**.
+   ![News](/images/web/firebase3.png)
 
----
+4. And paste this your Credentials in **.env** and **public/firebase-messaging-sw.js** File.
 
-## Step 2 — Get Firebase Config
+   ![News](/images/web/firebase-service.png)
 
-After registering the web app, Firebase will show your config object. Copy it — it looks like this:
+   ![News](/images/web/firebase_config.png)
 
-```js
-const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "your-sender-id",
-  appId: "your-app-id",
-  measurementId: "your-measurement-id"
-};
-```
+5. Open firebase account go to project settings -> cloud messaging -> Web configuration and select key and paste in .env file
 
----
+   ![News](/images/web/webpush.png)
 
-## Step 3 — Add Config to Project
-
-Open the `.env` file in the project root and add your Firebase config values:
-
-```env
-NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
-NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
-```
-
-![Firebase configuration](/images/web/firebase_config.png)
-
----
-
-## Step 4 — Get VAPID Key (Push Notifications)
-
-VAPID key is required for web push notifications.
-
-1. In Firebase Console, go to **Project Settings** → **Cloud Messaging** tab
-2. Scroll down to **Web Push certificates**
-3. Click **Generate key pair** if no key exists
-4. Copy the **Key pair** value
-
-![VAPID Key](/images/web/firebase_vapid_key.png)
-
----
-
-## Step 5 — Add VAPID Key to Project
+   ![News](/images/web/webpushkey.png)
 
 Open the `.env` file and add the VAPID key:
 
@@ -81,12 +39,21 @@ NEXT_PUBLIC_FIREBASE_VAPID_KEY=your-vapid-key-here
 
 ---
 
-## Step 6 — Enable Authentication
+6. **Note: Skip this Step if you have already copy pasted the credentials**  
+   If you have forget to copy your firebase credentials then you can always find your credentials by following these steps:
 
-1. In Firebase Console, go to **Authentication** → **Sign-in method**
-2. Enable **Phone** (for OTP login)
-3. Add your domain to **Authorized domains**
+   ![News](/images/web/firebase-integration.png)
 
-:::info
-Add both your production domain and `localhost` to authorized domains during development.
-:::
+7. For Login Provider open authentication -> sign in method
+
+   ![News](/images/web/firebase-provider.png)
+
+8. **Now you have to add your Web domain to your Firebase Project**  
+
+   1. Open your Firebase Project 
+   2. Go you Authentication/settings/Authorized Domain 3. Click on Add Domain 4. One Popup will open add your domain name without http/https in that popup and click submit.
+
+   ![News](/images/web/firebase-add-web-domain.png)
+
+   **Congratulations. You have successfully connected your Web application to your firebase project. Now you are good to go ahead.** 
+
