@@ -54,6 +54,7 @@ Click the **Create / New** button at the top right of the page to open the gatew
 | **Mode** | Choose **Test** for sandbox credentials or **Live** for production credentials. |
 | **Active** | Toggle on to enable this gateway for processing payments. |
 
+
 ![Gateway Configuration](/images/panel/gatewaystep2.png)
 
 :::info One gateway per country
@@ -72,7 +73,7 @@ After selecting a **Gateway Type**, the matching credentials section appears. Lo
 |---|---|---|
 | **Key ID** | Razorpay Dashboard → Account & Settings → API Keys. | Yes |
 | **Key Secret** | Shown once when you generate the API key in Razorpay. | Yes |
-| **Webhook Secret** | The secret you set when creating the webhook (see Step 6). | **Strongly recommended** — without it, payments won't be confirmed instantly (see Step 6). |
+| **Webhook Secret** | The secret you set when creating the webhook (see Step 6). | **Strongly recommended** — without it, the payments webhook is rejected and confirmation falls back to the 5-minute check (see Step 6). |
 
 ### Stripe
 
@@ -80,7 +81,7 @@ After selecting a **Gateway Type**, the matching credentials section appears. Lo
 |---|---|---|
 | **Publishable Key** | Stripe Dashboard → Developers → API keys (`pk_...`). | Yes |
 | **Secret Key** | Stripe Dashboard → Developers → API keys (`sk_...`). | Yes |
-| **Webhook Secret** | The signing secret shown after adding the webhook endpoint (`whsec_...`). | **Strongly recommended** — without it, payments won't be confirmed instantly (see Step 6). |
+| **Webhook Secret** | The signing secret shown after adding the webhook endpoint (`whsec_...`). | **Strongly recommended** — without it, the payments webhook is rejected and confirmation falls back to the 5-minute check (see Step 6). |
 
 ### Flutterwave
 
@@ -90,7 +91,6 @@ After selecting a **Gateway Type**, the matching credentials section appears. Lo
 | **Secret Key** | Flutterwave Dashboard → Settings → API. | Yes |
 | **Encryption Key** | Flutterwave Dashboard → Settings → API. | Yes |
 | **Secret Hash** | The hash you set in Flutterwave's webhook settings — it must match the `verif-hash` Flutterwave sends (see Step 6). | Yes |
-
 ![Gateway Credentials](/images/panel/gatewaystep3.png)
 
 :::tip
@@ -111,42 +111,54 @@ Webhooks let the payment provider notify your platform the moment a payment succ
 
 You configure webhooks inside each provider's dashboard, pointing them at your platform's webhook URLs.
 
-:::warning Webhooks are how payments get confirmed
-When a customer pays, the provider (Razorpay, Stripe, Flutterwave) tells your platform the payment succeeded **via the webhook**. If you don't set up the webhook — or you leave the **Webhook Secret / Secret Hash** blank — the provider's notification is **rejected by the signature check**, and the booking is **not confirmed instantly**.
+:::warning Webhooks give instant confirmation; the platform self-heals if one is missed
+When a customer pays (or a refund is issued), the provider notifies your platform **via the webhook**, and the status updates instantly. If the webhook isn't set up, the secret is blank/wrong, or the provider can't reach your server, that notification is rejected.
 
-As a safety net, the platform also runs a background **reconciliation check every 5 minutes** that asks the provider directly about any still-pending payment. This means a payment will *eventually* be confirmed even without webhooks, but:
+As a safety net, the platform runs a background **reconciliation check every 5 minutes** that asks the provider directly about anything still pending — for **both payments and refunds**. So statuses are confirmed *eventually* even if a webhook is missed, but:
 
-- Confirmation is **delayed** (up to several minutes) instead of immediate.
-- It depends on the server's **scheduled task (cron)** being set up correctly — see the [Cron Jobs Setup](./cron-jobs.md) guide.
-- It only re-checks payments from roughly the **last hour**.
+- Confirmation is **delayed** (up to a few minutes) instead of immediate.
+- It depends on the server's **scheduled task (cron)** being set up correctly — see the Cron Jobs Setup guide.
+- It re-checks recent **payments** (about the last hour) and recent **refunds** (about the last 3 days).
 
-For reliable, instant confirmation, **always set up the webhook and its secret.**
+For instant confirmation, set up the **payments webhook** and its secret. The refund side is handled automatically (see below).
 :::
 
 ### Your Webhook URLs
 
-Replace `yourdomain.com` with your actual domain, and `{gateway}` with `razorpay`, `stripe`, or `flutterwave`:
+:::tip
+The exact webhook URLs for your domain are shown directly in the gateway form — just scroll to the bottom of the credentials section after selecting a gateway type and click the copy button next to each URL.
+:::
+
+For reference, the URLs follow this pattern (replace `yourdomain.com` with your actual domain):
 
 | Purpose | URL |
 |---|---|
 | **Payments** | `https://yourdomain.com/api/payments/webhook/{gateway}` |
-| **Refunds** | `https://yourdomain.com/api/refunds/webhook/{gateway}` |
+| **Refunds** (Razorpay only — optional) | `https://yourdomain.com/api/refunds/webhook/razorpay` |
 
 For example, the Stripe payment webhook URL would be:
 
 ```
 https://yourdomain.com/api/payments/webhook/stripe
-```
+``` 
+
+:::info How many webhooks each gateway needs
+- **Stripe** and **Flutterwave** — create **one** webhook each (the **Payments** URL). Refunds are confirmed automatically (instantly when issued, with the reconciliation check as backup), so **no refund webhook is needed**. Stripe issues a unique secret per endpoint and the platform stores one secret per gateway; Flutterwave supports only one webhook URL — so a single Payments webhook is the correct setup for both.
+- **Razorpay** — create the **Payments** webhook. You may **optionally** add the **Refunds** webhook too if you want refund statuses to update *instantly*; otherwise the 5-minute reconciliation completes them automatically. Razorpay lets you set the webhook secret yourself, so the **same Webhook Secret works for both** of its webhooks.
+:::
 
 ### Events to Subscribe To
 
-Subscribe each provider to the events below so both payments and refunds are tracked:
-
-| Gateway | Payment Events | Refund Events |
+| Gateway | Webhook | Events to Subscribe |
 |---|---|---|
-| **Razorpay** | `payment.captured`, `payment.failed`, `payment_link.paid`, `payment_link.cancelled` | `refund.created`, `refund.processed`, `refund.failed` |
-| **Stripe** | `checkout.session.completed`, `checkout.session.expired` | `refund.created`, `refund.updated`, `refund.failed` |
-| **Flutterwave** | `charge.completed` | `refund.completed`, `refund.failed` |
+| **Razorpay** | Payments | `payment.captured`, `payment.failed`, `payment_link.paid`, `payment_link.cancelled` |
+| **Razorpay** | Refunds *(optional)* | `refund.created`, `refund.processed`, `refund.failed` |
+| **Stripe** | Payments *(only webhook needed)* | `checkout.session.completed`, `checkout.session.expired` |
+| **Flutterwave** | Payments *(only webhook needed)* | `charge.completed` |
+
+:::info Refunds are handled automatically for Stripe & Flutterwave
+You don't subscribe to refund events for Stripe or Flutterwave. When you issue a refund from the admin panel, the platform confirms it with the provider in the same request and updates the status immediately; the reconciliation check covers the rare case where a provider reports the refund as still pending. Note that the customer's bank still takes the provider's standard **5–10 business days** to post the funds — that settlement time is set by the banks, not the platform.
+:::
 
 ### Securing the Webhook (Signature Verification)
 
@@ -172,10 +184,14 @@ The webhook endpoints are public (the providers need to reach them without loggi
 
 To update a gateway's credentials, mode, or active status, click the **Edit** icon (pencil) next to it in the list.
 
-![Edit Gateway](/images/panel/gatewaystep4.png)
+!Edit Gateway
 
 :::warning
 The **Country** and **Gateway Type** cannot be changed once a gateway is created. To use a different country or gateway type, create a new gateway instead. You can still update the mode, credentials, webhook secret, and active status at any time.
+:::
+
+:::info
+Gateways cannot be deleted from the UI. If you need to stop using a gateway, toggle it **Inactive** instead.
 :::
 
 ---
@@ -186,7 +202,7 @@ Before accepting real payments, confirm the following for each gateway:
 
 1. **Mode** is set to **Live**.
 2. The credentials entered are your provider's **live** keys (not test/sandbox).
-3. Webhooks are created in the provider's dashboard pointing at your **live** domain's URLs.
+3. The **payments** webhook is created in the provider's dashboard pointing at your **live** domain's URL (plus the optional Razorpay refunds webhook, if you use it).
 4. The **Webhook Secret / Secret Hash** in the provider matches what you saved here.
 5. The gateway is toggled **Active**.
 
