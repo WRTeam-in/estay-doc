@@ -20,23 +20,32 @@ Setting up only one of them will leave the platform half-working (for example, p
 
 ---
 
-## The Two Cron Jobs
+## Step 1: Get Your Cron Commands from the Admin Panel
 
-Replace `yourdomain.com` with your actual domain. Both should run **every minute**.
+Your cron commands include a **secret token** that protects them from unauthorized access. The token is generated automatically — you don't need to set it manually.
 
-| # | Purpose | Command |
-|---|---|---|
-| 1 | **Scheduler** | `curl -s "https://yourdomain.com/run-scheduler" > /dev/null 2>&1` |
-| 2 | **Queue worker** | `curl -s "https://yourdomain.com/run-queue" > /dev/null 2>&1` |
+In your admin panel, go to **Settings → System Configure → Cron Jobs** tab.
+
+![Cron Jobs Settings](/images/panel/cron-settings.png)
+
+You will see:
+
+- **Cron Secret** — the token embedded in your URLs. You can reveal, edit, or regenerate it here.
+- **Your Cron Commands** — the two ready-to-copy `curl` commands with your secret already included.
+- **Cron Status** — live health indicators showing when each cron last ran.
+
+:::tip
+Click the **Copy** button next to each command to copy it directly. No need to type anything manually.
+:::
 
 ---
 
-## Step 1: Add the Cron Jobs in cPanel / hPanel
+## Step 2: Add the Cron Jobs in cPanel / hPanel
 
 1. Open **Cron Jobs** in your hosting control panel.
 2. Under **Common Settings**, choose **Once Per Minute** (`* * * * *`).
-3. Paste the **first** command (scheduler) and add it.
-4. Repeat for the **second** command (queue worker).
+3. Paste the **Cron 1 (Scheduler)** command copied from the admin panel and save it.
+4. Repeat with the **Cron 2 (Queue Worker)** command.
 
 ![cPanel Cron Job](/images/panel/cronpage.png)
 
@@ -46,7 +55,9 @@ Running every minute is correct. The scheduler checks each task and only runs th
 
 ---
 
-## Cron 1 — Scheduler (`/run-scheduler`)
+## What Each Cron Does
+
+### Cron 1 — Scheduler
 
 This runs the platform's scheduled tasks. That single endpoint manages all of these:
 
@@ -56,15 +67,13 @@ This runs the platform's scheduled tasks. That single endpoint manages all of th
 | **Expire Ghost Bookings** | Every 5 minutes | Cancels bookings whose payment was never completed, and marks those payments as expired. |
 | **Reconcile Pending Payments** | Every 5 minutes | Double-checks any still-pending payment directly with the payment gateway — the safety net for payments where a webhook was missed. |
 | **Sync Exchange Rates** | Once a day | Fetches the latest currency exchange rates for all active countries. |
-| **Process Scheduled Marketing Messages** | Every minute | Finds marketing notifications whose send time has arrived and **queues** them for delivery (the queue worker then sends them — see Cron 2). |
+| **Process Scheduled Marketing Messages** | Every minute | Finds marketing notifications whose send time has arrived and **queues** them for delivery (the queue worker then sends them). |
 
 :::info Why this matters for payments
 **Reconcile Pending Payments** confirms a payment if its webhook didn't arrive. If the scheduler cron isn't running, a payment with a missing webhook could stay **pending indefinitely**. See [Payment Gateway Settings](./payment-settings.md) for how webhooks and reconciliation work together.
 :::
 
----
-
-## Cron 2 — Queue Worker (`/run-queue`)
+### Cron 2 — Queue Worker
 
 Some tasks are too heavy to run instantly, so the platform places them on a **queue** and processes them in the background. The queue worker is what actually carries them out.
 
@@ -82,15 +91,12 @@ If you set up only the scheduler and **not** the queue worker, marketing notific
 
 ---
 
-## Step 2: Verify Everything Is Working
+## Step 3: Verify Everything Is Working
 
-The platform includes a small **monitor page** so you can confirm both crons are running. Visit:
+Go back to **Settings → System Configure → Cron Jobs** tab. The **Cron Status** section shows:
 
-```
-https://yourdomain.com/cron
-```
-
-It shows the last time the **scheduler** and the **queue worker** each ran. If either timestamp is stale (not updating every minute), that cron isn't firing — re-check the cron entry in your hosting panel.
+- ✅ **Green** — the cron ran within the last 5 minutes and is healthy.
+- ❌ **Red** — the cron hasn't run recently. Re-check the cron entry in your hosting panel.
 
 You can also test end-to-end:
 
@@ -98,7 +104,17 @@ You can also test end-to-end:
 - Send a test marketing notification → it should arrive shortly (queue worker).
 
 :::info Quick checklist
-- ✅ Cron 1: `curl … /run-scheduler` — every minute
-- ✅ Cron 2: `curl … /run-queue` — every minute
-- ✅ `/cron` monitor shows both updating
+- ✅ Copied Cron 1 (Scheduler) command from admin panel and added to hosting — every minute
+- ✅ Copied Cron 2 (Queue Worker) command from admin panel and added to hosting — every minute
+- ✅ Cron Status in admin panel shows both as green after a minute
+:::
+
+---
+
+## Rotating the Cron Secret
+
+If you suspect your cron URLs have been compromised, go to **Settings → System Configure → Cron Jobs** tab and click **Regenerate** next to the Cron Secret.
+
+:::warning Update your cron commands after regenerating
+Regenerating the secret invalidates the old URLs immediately. Your cron jobs will return 403 until you copy the new commands from the admin panel and update them in your hosting panel.
 :::
