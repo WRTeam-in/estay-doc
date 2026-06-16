@@ -72,7 +72,31 @@ Once extracted, verify that files such as `index.php`, `artisan`, and the `app/`
 
 ---
 
-## Step 6: Find Your Purchase Code
+## Step 6: Create Your `.env` File
+
+The package includes a `.env.example` file with all the required configuration keys. You must copy it to `.env` before the installer can run.
+
+**Via cPanel File Manager:**
+1. In File Manager, navigate to your project root (the folder containing `artisan`).
+2. Right-click `.env.example` and select **Copy**.
+3. Copy it to the same directory and rename the copy to `.env`.
+
+**Via SSH (if available):**
+```bash
+cp .env.example .env
+```
+
+:::warning
+If you skip this step, you will see a **"Setup Required"** error page when you open the installer. The application cannot boot without a `.env` file.
+:::
+
+:::info
+You do not need to edit the `.env` file manually. The installation wizard will fill in your database credentials, and the application key is generated automatically during installation.
+:::
+
+---
+
+## Step 7: Find Your Purchase Code
 
 You will need your Envato purchase code during installation.
 
@@ -80,7 +104,7 @@ Find it here: [Where Is My Purchase Code?](https://help.market.envato.com/hc/en-
 
 ---
 
-## Step 7: Run the Installer
+## Step 8: Run the Installer
 
 Open your browser and visit:
 
@@ -104,7 +128,7 @@ The installation wizard will appear. Fill in the following fields:
 
 ---
 
-## Step 8: Complete Installation
+## Step 9: Complete Installation
 
 Click the **Install** button. The installer will:
 
