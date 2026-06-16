@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # Server Deployment
 
-This guide explains how to deploy your eDemand web application with SEO support using Next.js on a VPS server.
+This guide explains how to deploy your web application with SEO support using Next.js on a VPS server.
 
 :::warning
 This is an advanced deployment option for users who have a VPS server and are familiar with Node.js, npm, and pm2. The instructions assume you're using a Debian-based Linux distribution.
