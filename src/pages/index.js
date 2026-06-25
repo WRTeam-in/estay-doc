@@ -5,6 +5,8 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import clsx from "clsx";
 import DocBanner from "../components/doc-banner/DocBanner.jsx";
+import AskAi from "../components/ask-ai/AskAi.jsx";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const SECTIONS = [
   {
@@ -166,6 +168,7 @@ export default function Home() {
           <DocBanner />
         </section>
       </main>
+      <BrowserOnly>{() => <AskAi />}</BrowserOnly>
     </Layout>
   );
 }

@@ -25,6 +25,14 @@ const config = {
     locales: ["en"],
   },
 
+  // Exposed to the browser. The AskAi widget reads this to call the backend.
+  // Override per environment via the AI_API_URL env var at build time.
+  customFields: {
+    aiApiUrl:
+      process.env.AI_API_URL ||
+      "https://YOUR-PROJECT.vercel.app/api/ask",
+  },
+
   presets: [
     [
       "classic",
