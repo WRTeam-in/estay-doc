@@ -11,16 +11,22 @@
  *   GEMINI_API_KEY=... npm run rag:index
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
-import { join, relative, sep } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from "node:fs";
+import { join, relative, sep, extname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
+import { createRequire } from "node:module";
 import matter from "gray-matter";
 import { GoogleGenAI } from "@google/genai";
+
+const require = createRequire(import.meta.url);
+const pdfParse = require("pdf-parse"); // v1.x: module.exports = fn
+const mammoth = require("mammoth");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DOCS_DIR = join(ROOT, "docs");
+const FEATURE_DIR = join(ROOT, "static", "feature-docs"); // drop PDF/DOCX/TXT here
 const OUT_DIR = join(ROOT, "api", "_data");
 const OUT_FILE = join(OUT_DIR, "embeddings.json");
 
@@ -50,11 +56,64 @@ function walk(dir) {
   return out;
 }
 
+// All files, any extension (used for feature-docs).
+function walkAll(dir) {
+  const out = [];
+  for (const name of readdirSync(dir)) {
+    if (name.startsWith(".")) continue;
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) out.push(...walkAll(full));
+    else out.push(full);
+  }
+  return out;
+}
+
 // docs/app/payment-gateway.md -> /estay-doc/docs/app/payment-gateway
 function fileToDocUrl(file) {
   const rel = relative(DOCS_DIR, file).replace(/\\/g, "/").replace(/\.mdx?$/, "");
   const path = `docs/${rel}`.replace(/\/index$/, "");
   return SITE_URL + (BASE_URL + path).replace(/\/{2,}/g, "/");
+}
+
+// static/feature-docs/Booking Flow.pdf -> downloadable static URL
+function featureFileToUrl(file) {
+  const rel = relative(FEATURE_DIR, file).replace(/\\/g, "/");
+  const path = `feature-docs/${rel}`;
+  return SITE_URL + (BASE_URL + path).split("/").map(encodeURIComponent).join("/").replace(/%2F/g, "/").replace(/\/{2,}/g, "/");
+}
+
+// "Booking-Flow_v2.pdf" -> "Booking Flow v2"
+function prettyTitle(file) {
+  return basename(file, extname(file)).replace(/[_-]+/g, " ").trim();
+}
+
+// Extract plain text from a feature doc by extension.
+async function extractText(file) {
+  const ext = extname(file).toLowerCase();
+  if (ext === ".pdf") return (await pdfParse(readFileSync(file))).text;
+  if (ext === ".docx") return (await mammoth.extractRawText({ buffer: readFileSync(file) })).value;
+  if (ext === ".txt" || ext === ".md") return readFileSync(file, "utf-8");
+  return null; // unsupported
+}
+
+const CHUNK_OVERLAP = 150;
+
+// Plain text has no headings — split on blank lines into overlapping chunks.
+function chunkPlain(text) {
+  const clean = text.replace(/\r/g, "").replace(/\n{3,}/g, "\n\n").trim();
+  const paras = clean.split(/\n{2,}/);
+  const chunks = [];
+  let buf = "";
+  for (const p of paras) {
+    if ((buf + "\n\n" + p).length > MAX_CHUNK_CHARS && buf) {
+      chunks.push(buf);
+      buf = (buf.slice(-CHUNK_OVERLAP) + "\n\n" + p).trim();
+    } else {
+      buf = buf ? buf + "\n\n" + p : p;
+    }
+  }
+  if (buf.trim()) chunks.push(buf.trim());
+  return chunks;
 }
 
 // GitHub-style heading slug for anchor links
@@ -168,7 +227,45 @@ async function main() {
       });
     }
   }
-  console.log(`Created ${records.length} chunks. Embedding...`);
+  console.log(`Created ${records.length} chunks from ${files.length} markdown files.`);
+
+  // Feature docs (PDF / DOCX / TXT) dropped in static/feature-docs/
+  if (existsSync(FEATURE_DIR)) {
+    const featureFiles = walkAll(FEATURE_DIR).filter(
+      (f) => /\.(pdf|docx|txt|md)$/i.test(f) && !/^readme\./i.test(basename(f))
+    );
+    let added = 0;
+    for (const file of featureFiles) {
+      let text;
+      try {
+        text = await extractText(file);
+      } catch (e) {
+        console.warn(`  ⚠ skip ${basename(file)} (parse failed: ${e.message})`);
+        continue;
+      }
+      if (!text || !text.trim()) {
+        console.warn(`  ⚠ skip ${basename(file)} (no extractable text)`);
+        continue;
+      }
+      const title = prettyTitle(file);
+      const url = featureFileToUrl(file);
+      for (const chunk of chunkPlain(text)) {
+        records.push({
+          title,
+          heading: "",
+          url,
+          file: relative(ROOT, file).split(sep).join("/"),
+          text: `${title}\n\n${chunk}`,
+          content: chunk,
+        });
+        added++;
+      }
+    }
+    if (featureFiles.length)
+      console.log(`Added ${added} chunks from ${featureFiles.length} feature doc(s).`);
+  }
+
+  console.log(`Total ${records.length} chunks. Embedding...`);
 
   for (let i = 0; i < records.length; i++) {
     records[i].embedding = await embedOne(records[i].text);

@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import styles from "./AskAi.module.css";
 
 const SUGGESTIONS = [
@@ -46,7 +48,12 @@ export default function AskAi() {
       const data = await res.json();
       setResult(data);
     } catch (e) {
-      setError("Something went wrong. Please try again.");
+      const message =
+        e?.message?.includes("Failed to fetch") ||
+        e?.message?.includes("Request failed")
+          ? "The AI assistant backend is unreachable. Start the local API server or set AI_API_URL to the correct endpoint."
+          : "Something went wrong. Please try again.";
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -139,7 +146,18 @@ export default function AskAi() {
 
               {result && (
                 <div className={styles.answer}>
-                  <p className={styles.answerText}>{result.answer}</p>
+                  <div className={styles.answerText}>
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        a: ({ node, ...props }) => (
+                          <a target="_blank" rel="noopener noreferrer" {...props} />
+                        ),
+                      }}
+                    >
+                      {result.answer}
+                    </ReactMarkdown>
+                  </div>
                   {result.sources?.length > 0 && (
                     <div className={styles.sources}>
                       <p className={styles.sourcesLabel}>Sources</p>

@@ -30,7 +30,9 @@ const config = {
   customFields: {
     aiApiUrl:
       process.env.AI_API_URL ||
-      "https://YOUR-PROJECT.vercel.app/api/ask",
+      (process.env.NODE_ENV === "development"
+        ? "http://localhost:8787/api/ask"
+        : "https://YOUR-PROJECT.vercel.app/api/ask"),
   },
 
   presets: [

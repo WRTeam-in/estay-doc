@@ -45,7 +45,8 @@ function cosine(a, b) {
 
 function setCors(req, res) {
   const origin = req.headers.origin;
-  if (ALLOWED_ORIGINS.includes(origin)) {
+  const isLocalhost = /^https?:\/\/localhost(:\d+)?$/.test(origin || "");
+  if (ALLOWED_ORIGINS.includes(origin) || isLocalhost) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   } else {
     res.setHeader("Access-Control-Allow-Origin", ALLOWED_ORIGINS[0]);
@@ -108,11 +109,13 @@ module.exports = async (req, res) => {
       )
       .join("\n\n---\n\n");
 
+    // De-dupe by page (ignore #anchor). Keep the best-scoring section per page.
     const seen = new Set();
     const sources = [];
     for (const r of ranked) {
-      if (seen.has(r.c.url)) continue;
-      seen.add(r.c.url);
+      const page = r.c.url.split("#")[0];
+      if (seen.has(page)) continue;
+      seen.add(page);
       sources.push({ title: r.c.title, heading: r.c.heading, url: r.c.url });
     }
 

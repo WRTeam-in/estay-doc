@@ -55,17 +55,28 @@ Two options:
 Also add your Vercel domain isn't needed in CORS — but if you serve docs from a
 new origin, add it to `ALLOWED_ORIGINS` in `api/ask.js`.
 
+## Feature docs (PDF / DOCX / TXT)
+
+Drop files into `static/feature-docs/`, then reindex. They get chunked, embedded,
+and become answerable — and are served as downloadable links (answer "Sources"
+point to them). README.* in that folder is ignored.
+
+```bash
+cp "Booking Flow.pdf" static/feature-docs/
+npm run rag:index
+```
+
 ## When docs change
 
 ```bash
-npm run rag:index   # regenerate index
+npm run rag:index   # regenerate index (re-reads docs/ + static/feature-docs/)
 git commit -am "reindex docs"
 git push            # Vercel redeploys with fresh index
 ```
 
 ## Models / cost
 
-- Embeddings: `text-embedding-004` (Gemini, free)
+- Embeddings: `gemini-embedding-001` (Gemini, free)
 - Answers: `llama-3.3-70b-versatile` via Groq (swap in `api/ask.js` → `CHAT_MODEL`)
 - Gemini free tier covers embeddings; Groq free tier covers chat. No billing needed.
 

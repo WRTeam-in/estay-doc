@@ -56,10 +56,10 @@ Open `android/app/src/main/AndroidManifest.xml` and add the following `<meta-dat
 ```xml
 <meta-data
     android:name="com.google.android.geo.API_KEY"
-    android:value="YOUR_API_KEY_HERE"/>
+    android:value="YOUR_MAP_API_KEY_HERE"/>
 ```
 
-Replace `YOUR_API_KEY_HERE` with the API key you copied in Step 3.
+Replace `YOUR_MAP_API_KEY_HERE` with the API key you copied in Step 3.
 
 ### iOS — `AppDelegate.swift`
 
@@ -67,11 +67,11 @@ Open `ios/Runner/AppDelegate.swift` and search for the following line:
 
 ```swift
 
-    GMSServices.provideAPIKey("YOUR_API_KEY_HERE")
+    GMSServices.provideAPIKey("YOUR_MAP_API_KEY_HERE")
   
 ```
 
-Replace `YOUR_API_KEY_HERE` with the same API key.
+Replace `YOUR_MAP_API_KEY_HERE` with the same API key.
 
 ## Step 5 — Rebuild
 

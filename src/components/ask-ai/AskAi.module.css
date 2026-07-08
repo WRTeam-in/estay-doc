@@ -235,8 +235,78 @@
 .answerText {
   font-size: 0.95rem;
   line-height: 1.7;
-  white-space: pre-wrap;
   margin: 0.5rem 0 1rem;
+}
+
+.answerText > :first-child {
+  margin-top: 0;
+}
+
+.answerText > :last-child {
+  margin-bottom: 0;
+}
+
+.answerText p {
+  margin: 0 0 0.75rem;
+}
+
+.answerText ul,
+.answerText ol {
+  margin: 0 0 0.75rem;
+  padding-left: 1.4rem;
+}
+
+.answerText li {
+  margin: 0.2rem 0;
+}
+
+.answerText li > ul,
+.answerText li > ol {
+  margin: 0.2rem 0;
+}
+
+.answerText code {
+  background: rgba(128, 128, 128, 0.16);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.answerText pre {
+  background: rgba(128, 128, 128, 0.12);
+  padding: 0.8rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 0.75rem;
+}
+
+.answerText pre code {
+  background: none;
+  padding: 0;
+}
+
+.answerText h1,
+.answerText h2,
+.answerText h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+.answerText a {
+  color: var(--primary-color, #1a73e8);
+}
+
+.answerText table {
+  border-collapse: collapse;
+  margin: 0 0 0.75rem;
+  font-size: 0.9em;
+}
+
+.answerText th,
+.answerText td {
+  border: 1px solid var(--ifm-toc-border-color, rgba(0, 0, 0, 0.15));
+  padding: 0.35rem 0.6rem;
 }
 
 .sources {
