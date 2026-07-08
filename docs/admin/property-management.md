@@ -111,10 +111,15 @@ Click **Add Property** to launch the comprehensive setup wizard. The system auto
 
 Provide the foundational information for your property.
 - **General Information:** Enter the Property Name + city as the property name (if you have multiple properties with same name) and a rich-text Description.
+- **Total Floors:** Enter the number of physical floors in the property (e.g., 4). The system automatically generates named floor records — Ground Floor, First Floor, Second Floor, and so on. These floors are used in the Room Inventory page to organise rooms by level.
 - **Meta Data:** Configure SEO settings including Meta Title, Meta Description, Meta Keywords, and Schema Markup.
 - **Property Contact Info:** Add the primary Phone Number, Email Address, and optional Landline.
 - **Property Address:** Use the Google Maps picker to select your location. Enter Street Address, State, City, Zip Code, Latitude, and Longitude.
 - **Bank Details:** Add payment reception details: Account Holder Name, Bank Name, Account Number, and Bank Code.
+
+:::info
+You can increase the Total Floors count later by editing the property. The floor count cannot be reduced if rooms already exist on the floors being removed — delete or reassign those rooms first from the Room Inventory page.
+:::
 
 #### Step 2: Property Facilities
 ![Property Step 2](/images/panel/propertystep2.png)
@@ -125,12 +130,16 @@ Select the global amenities available at this specific property.
 #### Step 3: Rooms & Pricing
 ![Property Step 3](/images/panel/propertystep3.png)
 
-Add inventory to your property.
+Add the room offerings available at your property.
 - Click **Add Room** to configure a specific room offering.
 - **Room Information:** Select a pre-configured **Room Type** from the dropdown (this pre-fills Name, Bed Type, Max Guests, Description, Images, and Amenities).
-- **Room Images & Amenities:** Review or modify the inherited images (max 8) and amenities for this specific physical room block.
-- **Room Setup:** Define the **Total Rooms** (inventory count), **Room Size** (sqft), and the **Base Price Per Night**.
+- **Room Images & Amenities:** Review or modify the inherited images (max 8) and amenities for this specific room offering.
+- **Room Setup:** Define the **Room Size** (sqft) and the **Base Price Per Night**.
 - Click **Save Room**. You must add at least one room to proceed.
+
+:::info
+The total number of available rooms is managed from the **Room Inventory** page — not entered here. After completing the property setup wizard, go to Room Inventory to generate individual room numbers (e.g., Room 101, Room 102) for each floor and room type. The system automatically counts active rooms and keeps inventory in sync.
+:::
 
 #### Step 4: Property Rules
 ![Property Step 4](/images/panel/propertystep4.png)
@@ -171,3 +180,11 @@ Provide necessary registration documents and finalize publication.
 ### Property Status and Progress
 
 In the properties list, you can track the setup progress (e.g., `8/8 Steps`). Properties remain invisible to guests if they are in a **Draft** status. You can click **Edit Property** to resume an incomplete wizard at any time.
+
+---
+
+### Next Step: Set Up Room Inventory
+
+After completing the property wizard, go to **Room Inventory** to generate the individual physical rooms for each floor and room type. This step is required before staff can assign rooms to bookings.
+
+See [Room Inventory](./room-inventory) for the complete setup guide.

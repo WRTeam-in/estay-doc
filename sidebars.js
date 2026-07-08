@@ -23,6 +23,7 @@ const sidebars = {
 
         // ── Core Operations ──
         "admin/property-management",
+        "admin/room-inventory",
         "admin/registration-fields",
         "admin/booking-management",
         "admin/user-management",

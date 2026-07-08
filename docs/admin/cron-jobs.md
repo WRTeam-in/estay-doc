@@ -7,7 +7,7 @@ title: Cron Jobs (Scheduled Tasks) Setup
 
 Your platform relies on **background tasks** to keep things running — confirming payments, expiring abandoned bookings, updating exchange rates, and sending notifications. These only run if you set up **two cron jobs** on your server.
 
-To make this easy on shared hosting (cPanel / hPanel), the platform provides two simple **web endpoints** that your cron jobs just need to "visit" with `curl`. You don't need command-line access.
+The platform provides the exact commands to copy — they are auto-generated with the correct PHP path and artisan path for your server. You just paste them into your hosting panel.
 
 :::warning You need TWO cron jobs
 Both are required and serve different purposes:
@@ -22,20 +22,25 @@ Setting up only one of them will leave the platform half-working (for example, p
 
 ## Step 1: Get Your Cron Commands from the Admin Panel
 
-Your cron commands include a **secret token** that protects them from unauthorized access. The token is generated automatically — you don't need to set it manually.
-
 In your admin panel, go to **Settings → System Configure → Cron Jobs** tab.
 
-![Cron Jobs Settings](/images/panel/cron-settings.png)
+![Cron Jobs Settings](/images/panel/cron-new.png)
 
 You will see:
 
-- **Cron Secret** — the token embedded in your URLs. You can reveal, edit, or regenerate it here.
-- **Your Cron Commands** — the two ready-to-copy `curl` commands with your secret already included.
+- **Cron 1 (Scheduler)** — the command to run the Laravel scheduler.
+- **Cron 2 (Queue Worker)** — the command to process queued jobs.
 - **Cron Status** — live health indicators showing when each cron last ran.
 
+The commands look like this (paths will match your actual server):
+
+```
+/usr/bin/php /home/youraccount/public_html/artisan schedule:run
+/usr/bin/php /home/youraccount/public_html/artisan app:process-queue-once
+```
+
 :::tip
-Click the **Copy** button next to each command to copy it directly. No need to type anything manually.
+Click the **Copy** button next to each command to copy it directly. The commands are generated specifically for your server — do not type them manually.
 :::
 
 ---
@@ -50,7 +55,7 @@ Click the **Copy** button next to each command to copy it directly. No need to t
 ![cPanel Cron Job](/images/panel/cronpage.png)
 
 :::tip Why every minute?
-Running every minute is correct. The scheduler checks each task and only runs the ones that are actually due (some run every 5 minutes, some once a day). The queue worker processes whatever jobs are waiting, then exits.
+Running every minute is correct. The scheduler checks each task internally and only runs the ones that are actually due (some run every 5 minutes, some once a day). The queue worker processes whatever jobs are waiting, then exits cleanly.
 :::
 
 ---
@@ -59,7 +64,7 @@ Running every minute is correct. The scheduler checks each task and only runs th
 
 ### Cron 1 — Scheduler
 
-This runs the platform's scheduled tasks. That single endpoint manages all of these:
+This runs the platform's scheduled tasks. That single command manages all of these:
 
 | Task | Runs | What It Does |
 |---|---|---|
@@ -107,14 +112,4 @@ You can also test end-to-end:
 - ✅ Copied Cron 1 (Scheduler) command from admin panel and added to hosting — every minute
 - ✅ Copied Cron 2 (Queue Worker) command from admin panel and added to hosting — every minute
 - ✅ Cron Status in admin panel shows both as green after a minute
-:::
-
----
-
-## Rotating the Cron Secret
-
-If you suspect your cron URLs have been compromised, go to **Settings → System Configure → Cron Jobs** tab and click **Regenerate** next to the Cron Secret.
-
-:::warning Update your cron commands after regenerating
-Regenerating the secret invalidates the old URLs immediately. Your cron jobs will return 403 until you copy the new commands from the admin panel and update them in your hosting panel.
 :::
