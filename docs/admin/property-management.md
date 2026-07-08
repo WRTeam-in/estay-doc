@@ -187,4 +187,4 @@ In the properties list, you can track the setup progress (e.g., `8/8 Steps`). Pr
 
 After completing the property wizard, go to **Room Inventory** to generate the individual physical rooms for each floor and room type. This step is required before staff can assign rooms to bookings.
 
-See [Room Inventory](./room-inventory) for the complete setup guide.
+See [Room Inventory](./room-inventory.md) for the complete setup guide.
