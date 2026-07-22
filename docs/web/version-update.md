@@ -4,7 +4,8 @@ sidebar_position: 13
 
 # New Version Update
 
-Follow these steps to update to a new version of the web app. Choose deployment based on whether your site is configured with SEO or without SEO.
+
+Follow these steps to update to a new version of the web app.
 
 1. **Extract the ZIP File**:
    Extract the ZIP file containing the web code that you received from Codecanyon.
@@ -13,10 +14,47 @@ Follow these steps to update to a new version of the web app. Choose deployment 
    Open the extracted web code in Visual Studio Code (VS Code).
 
 3. **Edit the .env File**:
-   Locate and open the .env file in your code editor. Add the admin URL as specified in the documentation.
+   Locate and open the .env file in your code editor. Fill all required details in it.
 
 4. **Configure Firebase**:
-   Open the Firebase Console. Follow the steps outlined in the [Firebase Setup documentation](./firebase.md). Add the Firebase details to the .env file of your web project.
+   Add the Firebase details to the public/firebase-messaging-sw.js file of your web project.
+
+   :::note Skip the 5th step if already made edits on server.
+
+5. **Upload file to server**:
+   Make a zip of the web files and upload to your server.
+
+
+## Automated Deployment (Recommended)
+
+To update the application on the VPS using the automated script:
+
+1.  **SSH into the server** and navigate to the project directory.
+2.  **Run the deployment script**:
+    ```bash
+    ./update.sh
+    ```
+
+:::info
+If you encounter the error:
+
+`update.sh: command not found`
+
+Run the following command once to make the script executable:
+
+```bash
+chmod +x update.sh
+```
+
+After that, run the deployment script again:
+
+```bash
+./update.sh
+```
+
+:::
+
+## Manual Deployment
 
 5. **Install Dependencies**:
    Run the following command to install the necessary dependencies:
@@ -56,5 +94,4 @@ Follow these steps to update to a new version of the web app. Choose deployment 
 
 7. **Need more details?**
 
-- For the full SEO (VPS) deployment flow, see: [Next.js Deployment](./nextjs-deployment.md)
-- For static hosting without SEO, see: [Deployment Without SEO](./deployment-without-seo.md)
+- For the full SEO (VPS) deployment flow, see: [Next.js Deployment](./server-deployment.md)

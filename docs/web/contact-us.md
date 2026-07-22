@@ -1,10 +1,36 @@
 ---
 id: contact-us
-title: Contact Us Page
+title: Update Web Content
 sidebar_position: 9
 ---
 
-# Contact Us Page
+# Home Page Single Hotel Type
+To update content open admin panel **Content management** -> **Manage Homepage**
+![about-us sect](/images/web/homePageContent.png)
+
+:::info
+ Please note testimonial can be selected only when your customers will leave reviews then you can select it to show on home.
+:::
+
+# AboutUs Page
+To update content open admin panel **Content management** -> **Aboutus Page**
+![about-us sect](/images/web/aboutUsContent.png)
+
+# Blogs Page
+To update content open admin panel **Content management** -> **Blogs Page**
+![about-us sect](/images/web/blogsContent.png)
+
+# Policy Pages content
+To update content open admin panel **Content management** -> **Legal Policies Page**
+![about-us sect](/images/web/policiesContent.png)
+
+# Help Support Page content
+To update content open admin panel **Content management** -> **Help Support Page**
+![about-us sect](/images/web/helpSupport.png)
+
+# ContactUs Page content
+To update content open admin panel **Settings** -> **Web Settings** -> **Contact Information**
+![about-us sect](/images/web/contactInfo.png)
 
 Control the social media icons and links shown on the app's **Contact Us** screen.
 

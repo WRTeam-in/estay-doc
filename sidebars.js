@@ -108,6 +108,7 @@ const sidebars = {
         "web/pwa-setup",
         "web/run-the-project",
         "web/server-deployment",
+        "web/version-update",
       ],
     },
     "support",
