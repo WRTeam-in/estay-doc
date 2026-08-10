@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Configure push notifications across the admin panel, Firebase, Android, and iOS so users receive real-time updates from the app.
 
-Please visit our [Notification Settings Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/notifications) and follow **every step in the order shown**.
+Please visit our [Notification Settings Documentation](https://www.marketplace.wrteam.in/docs/flutter-common-doc/GeneralSettings/notifications) and follow **every step in the order shown**.
 
 ## What the Guide Covers
 

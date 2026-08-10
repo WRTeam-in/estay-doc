@@ -8,7 +8,7 @@ sidebar_position: 3
 
 To enable certain Firebase services (Phone OTP verification, Places search, Maps APIs beyond the free tier), you must upgrade your Firebase project to the **Blaze (pay-as-you-go) plan** and attach a billing account.
 
-Please visit our [Firebase Billing Setup Guide](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase-billing/) and follow **every step in the order shown**.
+Please visit our [Firebase Billing Setup Guide](https://www.marketplace.wrteam.in/docs/flutter-common-doc/GeneralSettings/firebase-billing/) and follow **every step in the order shown**.
 
 ## What the Guide Covers
 

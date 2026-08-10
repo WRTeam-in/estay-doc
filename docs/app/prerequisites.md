@@ -56,4 +56,4 @@ All checks should pass (green check marks) before moving to the next step.
 
 ## Additional Reference
 
-For a complete environment walkthrough, see our [Basic Setup Guide](http://wrteam-in.github.io/common_app_doc/GeneralSettings/basicsetup/).
+For a complete environment walkthrough, see our [Basic Setup Guide](https://www.marketplace.wrteam.in/docs/flutter-common-doc/GeneralSettings/basicsetup/).

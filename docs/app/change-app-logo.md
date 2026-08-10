@@ -8,7 +8,7 @@ sidebar_position: 11
 
 Replace the default app icon with your own branded logo for both Android and iOS builds.
 
-Please visit our [Change App Logo Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/appicon) and follow **every step in the order shown**.
+Please visit our [Change App Logo Documentation](https://www.marketplace.wrteam.in/docs/flutter-common-doc/GeneralSettings/appicon) and follow **every step in the order shown**.
 
 ## What the Guide Covers
 

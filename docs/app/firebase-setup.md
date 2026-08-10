@@ -8,7 +8,7 @@ sidebar_position: 2
 
 The app uses Firebase for push notifications, authentication, and other Google services. A full step-by-step guide (with screenshots) is maintained on our common docs site.
 
-Please visit our [Firebase Setup Documentation](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase/) and follow **every step in the order shown**.
+Please visit our [Firebase Setup Documentation](https://www.marketplace.wrteam.in/docs/flutter-common-doc/GeneralSettings/firebase/) and follow **every step in the order shown**.
 
 ## Authentication Methods
 
