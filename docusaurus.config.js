@@ -66,8 +66,13 @@ const config = {
         },
         items: [
           {
-            to: "/docs/admin/installation",
+            to: "/docs/admin/overview",
             label: "Admin Panel",
+            position: "left",
+          },
+          {
+            to: "/docs/partner/overview",
+            label: "Partner Panel",
             position: "left",
           },
           {

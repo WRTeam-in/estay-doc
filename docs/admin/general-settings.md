@@ -56,6 +56,15 @@ These details appear in the contact sections of the app and website.
 | Field | Description |
 |---|---|
 | **Allowed Authentication Methods** | Choose which sign-in options customers can use: **Email & Password**, **Phone Number**, **Google**, **Apple**. At least one must be selected. |
+| **Default Search Radius (km)** | Multi-mode only. Properties outside this radius are filtered out of location-based searches (1–500 km). |
+
+### Partner Settings (Multi-mode only)
+
+An extra tab, only present in [Multi Mode](./overview.md#single-mode-vs-multi-mode):
+
+| Field | Description |
+|---|---|
+| **Auto-Approve Partners** | Off by default. Turn it on to skip [Partner Verification](./partner-verification.md) entirely — new registrations are approved the instant they sign up, with no manual review. |
 
 ### Maintenance Mode
 

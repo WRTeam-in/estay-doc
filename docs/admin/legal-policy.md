@@ -31,8 +31,12 @@ Fill in the core details for your new policy:
 
 | Field | Description |
 |---|---|
-| **Policy Type** | Select the type of document you are creating (e.g., Privacy Policy, Terms and Conditions, Refund Policy). |
+| **Policy Type** | Select the type of document you are creating: **Terms & Condition**, **Privacy Policy**, **Platform Policy**, or **Cancellation Policy**. |
 | **Language** | Select the language for this specific document. You can create multiple policies of the same type if they are in different languages. |
+
+:::info Multi-mode: a Partner Policy type
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), **Partner Policy** is available as a fifth Policy Type — a document shown specifically to partners (e.g. in the Partner Panel or during onboarding), separate from your customer-facing terms and privacy policy.
+:::
 
 ![Policy Basics](/images/panel/legalstep3.png)
 

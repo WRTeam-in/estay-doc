@@ -18,7 +18,7 @@ eStay is a complete property booking and rental platform that includes an Admin 
 
 Choose a section from the sidebar to begin:
 
-- [Admin Panel Setup](./admin/installation.md)
+- [Admin Panel Setup](./admin/overview.md)
 - [Mobile App Setup](/docs/app/prerequisites)
 - [Web App Setup](/docs/web/setup)
 

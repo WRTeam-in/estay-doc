@@ -30,11 +30,11 @@ Set up your **Roles first**, then create your **Staff** and assign them a role. 
 
 ---
 
-# Part 1 — Roles & Permissions
+## Part 1 — Roles & Permissions
 
 A role is a reusable set of permissions. Instead of configuring access for each person, you build a role once and assign it to many staff.
 
-## The Roles List
+### The Roles List
 
 Navigate to **Staff & Access > Roles & Permissions**. The table shows:
 
@@ -51,7 +51,7 @@ You can **search** by role name and **export** the list (CSV/Excel).
 
 ---
 
-## Creating a Role
+### Creating a Role
 
 Click **Create New Role** at the top right, then fill in:
 
@@ -60,7 +60,7 @@ Click **Create New Role** at the top right, then fill in:
 | **Role Name** | Required. A clear, descriptive name. |
 | **Description** | Required. What this role is allowed to do / who it's for. |
 
-### Setting Permissions
+#### Setting Permissions
 
 Below the details is the **permission matrix** — one row per module, with four checkboxes each:
 
@@ -105,7 +105,11 @@ The available **modules** are:
 Some modules cover several pages. For example, **All Bookings** also controls Today's Check-ins, Check-outs, and the Availability Calendar; **General Settings** covers System Settings, Languages, Activity Logs, SEO, and more. Granting a module grants its related pages.
 :::
 
-### Assigning Staff to the Role (optional)
+:::info Multi-mode: extra modules, and "Room Types" disappears
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), the **Room Types** module is hidden entirely — there's no admin-side room management to grant access to (see [Room Inventory](./room-inventory.md)). Nine extra modules appear instead, one per multi-mode-only page: **Commission Rules**, **Property Verification**, **Partner Management**, **Withdrawal Requests**, **Property Payouts**, **Reports**, **Cancellation Policy Types**, **Homepage Sections**, and **Property Type Catalog**.
+:::
+
+#### Assigning Staff to the Role (optional)
 
 While creating or editing a role, you can directly **assign staff** to it by searching and selecting them.
 
@@ -119,7 +123,7 @@ When done, click **Save**. The role is created with its permissions, and any sel
 
 ---
 
-## Managing Existing Roles
+### Managing Existing Roles
 
 From the Roles list, each role has these actions:
 
@@ -135,15 +139,19 @@ Changing a role's permissions immediately changes access for **every staff membe
 
 ---
 
-# Part 2 — Staff Management
+## Part 2 — Staff Management
 
-A staff member is a person who can log into the admin panel. Each staff account is tied to a **country** and a **property**, and is given a **role** that controls their access.
+A staff member is a person who can log into the admin panel. Each staff account is tied to a **country** and, in Single Mode, a specific **property**; they're given a **role** that controls their access.
 
 :::info Country & property scoped
 The staff list shows staff for your **currently selected country and property**. New staff are created under your current country and assigned to a property. Switch the country/property in the topbar to manage staff elsewhere.
 :::
 
-## The Staff List
+:::info Multi-mode: no property assignment
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), staff work across every partner property in a country rather than one specific property — the topbar property switcher is hidden on these pages, the **Assigned Property** field is no longer required when adding a staff member, and the **Property** column drops from both the staff list and its export.
+:::
+
+### The Staff List
 
 Navigate to **Staff & Access > Staff Management**. The table shows:
 
@@ -163,7 +171,7 @@ You can **search** by name/email, **filter** by status, and **export** the list.
 
 ---
 
-## Adding a Staff Member
+### Adding a Staff Member
 
 Click **Add Staff Member**, then complete the form:
 
@@ -194,7 +202,7 @@ A new staff member starts with **no role** (shown as "Not Assigned") and therefo
 
 ---
 
-## Managing Staff
+### Managing Staff
 
 Each staff row has these actions:
 
@@ -210,7 +218,7 @@ Use **Block** to temporarily revoke access (e.g. someone on leave) — it's reve
 
 ---
 
-## Putting It Together — A Typical Setup
+### Putting It Together — A Typical Setup
 
 1. Go to **Roles & Permissions → Create New Role**. Name it (e.g. *Front Desk*), describe it, and tick the modules/actions they should have (e.g. View + Edit on **All Bookings**).
 2. Go to **Staff Management → Add Staff Member**. Fill in their details, password, and assigned property.

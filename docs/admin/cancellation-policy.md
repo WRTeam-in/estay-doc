@@ -7,6 +7,10 @@ title: Platform Setup - Cancellation Policy
 
 Manage the refund rules and cancellation cut-off times for all bookings on your platform. You must configure these rules to complete this setup step.
 
+:::warning Multi-mode: a different page and a different model
+Everything below this describes **Single Mode**, where there's exactly **one flat, platform-wide policy**. In [Multi Mode](./overview.md#single-mode-vs-multi-mode), this page doesn't exist — it's replaced by **Cancellation Policy Types**, where you configure **one policy per (country, property type)** instead of a single global one. The list shows every property type enabled for your selected country, each either "Not Configured", Active, or Inactive; open a row to create or edit that type's policy using the same cut-off-time-and-tiered-rules structure described below, just scoped to that one property type. This is also just the **platform default** for that property type — an individual partner can still switch their own property to a custom policy instead of inheriting this one, from their own Cancellation Policy page in the Partner Panel.
+:::
+
 ---
 
 ## Step 1: Navigate to Cancellation Policies

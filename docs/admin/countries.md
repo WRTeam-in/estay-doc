@@ -32,6 +32,10 @@ In your admin dashboard, go to **Location & Policies > Countries**. You'll see e
 
 You can **search**, **filter** by status, and **export** the list.
 
+:::info Multi-mode: commission shown per country
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), the list adds a **Commission Structure** column showing the country's default rate plus any per-property-type rates — the same rates configured in [Commission Management](./commission-management.md).
+:::
+
 ---
 
 ## Step 2: Add a Country
@@ -71,6 +75,10 @@ You don't enter the currency or dialing code manually — they come from the bui
 
 - **View** (eye) — see the country's full details: flag, ISO, currency, phone code, and its list of taxes.
 - **Edit** (pencil) — change the **operation status** (Active/Inactive) and the **Default Country** setting. The country's core info (name, ISO, currency, phone code) is fixed and shown for reference.
+
+:::info Multi-mode: default commission rate lives here too
+In Multi Mode, editing a country also shows a **Default Commission** field. This sets the same country-wide default rate as [Commission Management](./commission-management.md)'s Default Rates tab — the two are two entry points to the identical setting, not separate rates.
+:::
 
 ![Edit Country](/images/panel/countrystep3.png)
 

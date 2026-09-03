@@ -7,6 +7,10 @@ title: Platform Setup - Tax Configuration
 
 Configure the taxes applicable to your property bookings based on your local regulations. You must set up at least one active tax to complete this step.
 
+:::info Multi-mode: taxes can be scoped by property type
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), the tax list shows an extra **Property Type** column listing which property types each tax applies to. You don't set this from here, though — it's configured on the **Property Type** page's **Configure Tax** field (see [Property Management](./property-management.md#1-property-type)), which links taxes to a type. A booking is only charged the taxes linked to its property's type.
+:::
+
 ---
 
 ## Step 1: Navigate to Tax Management

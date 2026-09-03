@@ -15,6 +15,34 @@ Start with [Installation](./installation.md), then work through the **Platform S
 
 ---
 
+## Single Mode vs Multi Mode
+
+eStay ships as **one codebase** with two operating modes. The mode is chosen once, during initial [Installation](./installation.md) via the setup wizard, and isn't meant to be changed afterward.
+
+- **Single Mode** (default) — you run one property-booking business. The admin panel manages every property directly.
+- **Multi Mode** — the platform becomes a marketplace. Property owners register as **Partners** and manage their own properties, rooms, and bookings through a separate **Partner Panel**, while the admin panel adds tools to verify partners, configure commission, and track platform-wide finance.
+
+:::info This guide covers both modes
+Pages and nav groups that only exist in Multi Mode are marked **Multi-mode only**. Everything else in this guide applies to both modes identically.
+:::
+
+### What Multi Mode adds to the admin panel
+
+| Nav group | New page | What it's for |
+|---|---|---|
+| **Partners** *(new group)* | All Partners | Full list of registered partners and their properties |
+| | Partner Verification | Approve or reject a partner's registration before they can go live |
+| | Registration Fields *(partner)* | Custom fields shown on the partner sign-up form (separate from the customer-facing [Registration Fields](./registration-fields.md)) |
+| **Property Management** | Property Verification | Approve or reject a property a partner submits, before it's bookable |
+| **Finance** *(new group)* | Commission Management | Global and per-property commission rates taken from partner bookings |
+| | Property Payout | Payouts owed to partners per property |
+| | Withdrawal Requests | Partner requests to withdraw their wallet balance |
+| **Reports** *(new group)* | All Reports | Tax, cancellation, feedback-rating, and partner performance reports |
+
+Partners themselves work in the **[Partner Panel](/docs/partner/overview)** — a separate login, separate URL, scoped to only their own properties and bookings.
+
+---
+
 ## The Most Important Concept: Country & Property Context
 
 At the top of the admin panel you'll find **country** and **property** switchers in the topbar. **Most of what you see is scoped to your currently selected country (and property).**
@@ -33,6 +61,10 @@ If a customer, booking, or transaction "isn't showing up," the first thing to ch
 ## The Dashboard
 
 When you log in, you land on the **Dashboard** — an at-a-glance overview of your business with key stats and analytics for your selected country. Use it as your daily starting point, then dive into the sections below.
+
+:::info Multi-mode: a setup checklist first, then a different dashboard
+In [Multi Mode](#single-mode-vs-multi-mode), until your selected country's core setup is complete (admin profile, cities, taxes, cancellation policy, legal policy, commission, and property type setup), the Dashboard shows a **setup checklist** instead of analytics — with a button linking straight to each unfinished step. Once complete, you get a different dashboard than Single Mode: filterable **Booking Overview**, **Top Cities**, and **Revenue** widgets reflecting the whole country's marketplace, not just your own bookings.
+:::
 
 ---
 
@@ -65,7 +97,7 @@ Beyond day-to-day management, the admin panel connects to several external servi
 | **Push notifications** (Firebase) | [Notification Settings](./notification-management.md) |
 | **Email delivery** (SMTP) | [SMTP / Mail](./smtp-configurations.md) |
 | **Languages & translations** | [Manage Languages](./language.md) |
-| **Maps & places** | [Google Maps API](./api-google-maps.md) |
+| **Maps & places** | [Map Provider](./map-provider.md) — free via OpenStreetMap by default, Google Maps optional |
 | **Currency conversion** | [Currency Exchange API](./currency-exchange-api.md) |
 | **Visitor country detection** | [IP Geolocation API](./api-ip-geolocation.md) |
 | **Background tasks** (scheduler + queue) | [Cron Jobs Setup](./cron-jobs.md) |

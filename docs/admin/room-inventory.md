@@ -9,6 +9,10 @@ Manage physical room numbers, floor assignments, and room availability for each 
 
 **Navigate to:** Sidebar → Room Management → **Room Inventory**
 
+:::warning Multi-mode: this entire section doesn't exist for admins
+The whole **Room Management** group described on this page — Room Inventory, Room Types, All Rooms — is **Single Mode only**. In [Multi Mode](./overview.md#single-mode-vs-multi-mode), room types and room inventory are managed entirely by the **partner** who owns the property, from their own Partner Panel. Admins don't have a room management page in multi mode at all; you'd review a partner's rooms as part of [Property Verification](./property-verification.md) or a property's detail view instead.
+:::
+
 ---
 
 ## Overview

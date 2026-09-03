@@ -9,6 +9,10 @@ View and manage all guest bookings on your eStay platform from a single interfac
 
 **Navigate to:** Sidebar → **Bookings**
 
+:::info Multi-mode: oversight, not day-to-day operations
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), this page shows bookings across **every partner property** in your selected country (there's no single-property narrowing — the topbar's property switcher is hidden here) and stats are country-wide rather than per-property. It's also **view-only for operations**: admins don't check guests in/out or assign rooms from here — that's the owning partner's job, from their own Bookings pages in the Partner Panel. The admin's own **Availability Calendar** is also gone in Multi Mode, for the same reason — see the [partner-side Availability Calendar](/docs/partner/availability-calendar) instead. Three related pages exist only in Multi Mode: [Reserved Bookings](./reserved-bookings.md), [Pay At Property Bookings](./pay-at-property.md), and [Cancellations & Refunds](./cancellations-refunds.md).
+:::
+
 ![Booking List](/images/panel/booking-list.png)
 
 ---

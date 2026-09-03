@@ -23,11 +23,23 @@ const sidebars = {
 
         // ── Core Operations ──
         "admin/property-management",
+        "admin/property-verification",      // multi-mode only
         "admin/room-inventory",
         "admin/registration-fields",
         "admin/booking-management",
+        "admin/reserved-bookings",           // multi-mode only
+        "admin/pay-at-property",            // multi-mode only
+        "admin/cancellations-refunds",       // multi-mode only
         "admin/user-management",
-        "admin/events-and-inquiries",
+        "admin/events-and-inquiries",        // single-mode only
+        "admin/review-removal-requests",     // multi-mode only
+        "admin/removed-reviews",             // multi-mode only
+
+        // ── Partners (multi-mode only) ──
+        "admin/all-partners",
+        "admin/partner-verification",
+        "admin/partner-registration-fields",
+        "admin/become-partner-faq",
 
         // ── Marketing ──
         "admin/promo-codes",
@@ -38,6 +50,12 @@ const sidebars = {
         "admin/payment-settings",
         "admin/payment-transactions",
         "admin/manual-refunds",
+        "admin/commission-management",      // multi-mode only
+        "admin/property-payout",            // multi-mode only
+        "admin/withdrawal-requests",        // multi-mode only
+
+        // ── Reports (multi-mode only) ──
+        "admin/all-reports",
 
         // ── Staff & Access ──
         "admin/roles-and-staffs",
@@ -47,16 +65,62 @@ const sidebars = {
         "admin/notification-management",
         "admin/smtp-configurations",
         "admin/language",
-        "admin/api-google-maps",
+        "admin/map-provider",
         "admin/api-currency-exchange",
         "admin/api-ip-geolocation",
         "admin/cron-jobs",
+        "admin/image-upload-limits",
 
         // ── System ──
         "admin/update-system",
         "admin/other-pages",
+        "admin/homepage-sections",          // multi-mode only
       ],
 
+    },
+    {
+      type: "category",
+      label: "eStay Partner Panel",
+      items: [
+        // Multi-mode only.
+        "partner/overview",
+
+        // ── Getting Started ──
+        "partner/registration",
+        "partner/login",
+        "partner/setup-wizard",
+        "partner/dashboard",
+
+        // ── Bookings ── (mirrors PartnerPanelProvider's nav groups from here down)
+        "partner/bookings",
+        "partner/todays-checkins-checkouts",
+        "partner/availability-calendar",
+
+        // ── Room Management ──
+        "partner/room-management",
+        "partner/room-inventory",
+
+        // ── Review Monitoring ──
+        "partner/reviews",
+
+        // ── Wallet Management ──
+        "partner/wallet",
+
+        // ── Property Management ──
+        "partner/property-management",
+        "partner/adding-a-property",
+
+        // ── Cancellation Policy ──
+        "partner/cancellation-policy",
+
+        // ── Location Management ──
+        "partner/location-management",
+
+        // ── Settings ──
+        "partner/settings",
+        "partner/notifications",
+        "partner/profile",
+      ],
     },
     {
       type: "category",

@@ -14,9 +14,13 @@ The **Event Management** section has two related pages:
 
 Customers browse your events and submit inquiries; you manage the events here and follow up on each inquiry.
 
+:::warning Single Mode only
+This entire section — both All Events and Event Inquiries — is only available in [Single Mode](./overview.md#single-mode-vs-multi-mode). There's no equivalent in Multi Mode, on either the admin or Partner Panel side.
+:::
+
 ---
 
-# All Events
+## All Events
 
 **Event Management → All Events.** Define the events your properties can host.
 
@@ -24,7 +28,7 @@ Customers browse your events and submit inquiries; you manage the events here an
 Events are **general** across the whole platform — not tied to a single country or property. The country and property switchers are hidden on this page.
 :::
 
-## Adding an Event
+### Adding an Event
 
 Click **Add Event** and fill in:
 
@@ -40,7 +44,7 @@ Click **Create Event** to save.
 
 ![Add Event](/images/panel/eventstep1.png)
 
-## The Events List
+### The Events List
 
 | Column | Description |
 |---|---|
@@ -54,7 +58,7 @@ Each event has **View** (preview), **Edit**, and **Delete** actions, and the lis
 
 ---
 
-# Event Inquiries
+## Event Inquiries
 
 **Event Management → Event Inquiries.** When a customer is interested in hosting an event, they submit an inquiry — this is where you manage and respond to them.
 
@@ -62,7 +66,7 @@ Each event has **View** (preview), **Edit**, and **Delete** actions, and the lis
 Inquiries are shown for your **currently selected country** (based on the property they're about). Switch the country from the topbar to see inquiries elsewhere.
 :::
 
-## The Inquiries List
+### The Inquiries List
 
 | Column | Description |
 |---|---|
@@ -77,7 +81,7 @@ Inquiries are shown for your **currently selected country** (based on the proper
 
 You can **search** (by event name, customer, email, phone), **filter** by status, and **export**.
 
-## Responding to an Inquiry
+### Responding to an Inquiry
 
 Click the **View** icon (eye) to open the full inquiry — customer details, requested location, when it was received, and their special requirements.
 

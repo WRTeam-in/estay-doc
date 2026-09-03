@@ -13,8 +13,16 @@ const SECTIONS = [
     title: "Admin Panel",
     description:
       "Manage properties, room types, bookings, staff, and guest communications from one dashboard.",
-    to: "/docs/admin/installation",
+    to: "/docs/admin/overview",
     icon: "🏨",
+    accent: "#1a73e8",
+  },
+  {
+    title: "Partner Panel",
+    description:
+      "For property owners on Multi Mode — manage your own properties, rooms, bookings, and payouts.",
+    to: "/docs/partner/overview",
+    icon: "🤝",
     accent: "#1a73e8",
   },
   {
@@ -78,7 +86,7 @@ function HomepageHeader() {
           </Link>
           {/*   <Link
             className={clsx("button button--lg", styles.btnGhost)}
-            to="/docs/admin/installation"
+            to="/docs/admin/overview"
           >
             Browse Docs
           </Link> */}

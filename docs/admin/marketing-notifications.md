@@ -42,6 +42,10 @@ Click **Send Notification** and fill in the form.
 
 ![Create Notification](/images/panel/marketingstep2.png)
 
+:::info Multi-mode: two more audiences, and a 2-step form
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), **Send Notification** becomes a 2-step wizard (Content, then Audience), and the Audience field gains two more options: **Partners** (every partner account) and **All Users** (customers and partners together).
+:::
+
 ### Send now vs. schedule
 
 - **Send Now** — leave "Schedule for Later" off and click **Send Now**. The message is queued for immediate delivery.

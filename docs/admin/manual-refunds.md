@@ -11,6 +11,10 @@ When an automatic refund to a customer's original payment method **fails** (for 
 Requests are shown for your **currently selected country** (and property, if one is selected). Switch the country/property from the topbar to see requests elsewhere.
 :::
 
+:::info Multi-mode
+In [Multi Mode](./overview.md#single-mode-vs-multi-mode), the property switcher is hidden and requests are shown across **every partner property** in the selected country — there's no narrowing to a single property the way single mode's branch selection works.
+:::
+
 ---
 
 ## Step 1: Open Manual Refunds

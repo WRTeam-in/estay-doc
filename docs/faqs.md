@@ -32,3 +32,10 @@ Yes. You can customize the app name, logo, colors, and package name as described
 See the [Update System](./admin/update-system.md) section in the Admin Panel docs.
 
 </details>
+
+<details>
+<summary>Can multiple property owners manage their own listings on my platform?</summary>
+
+Yes. eStay can run in two modes, chosen once during installation. **Single Mode** is the classic setup — you manage every property directly from the admin panel. **Multi Mode** turns the platform into a marketplace: property owners register as partners and manage their own properties, rooms, and bookings from a separate **Partner Panel**, while you verify partners, set commission, and oversee the platform. See [Admin Panel Overview](./admin/overview.md#single-mode-vs-multi-mode) for the full breakdown, and [Partner Panel Overview](./partner/overview.md) for what a partner sees.
+
+</details>

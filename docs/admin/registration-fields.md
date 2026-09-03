@@ -46,7 +46,7 @@ Click **Add New Field** and fill in the form.
 | Field | Description |
 |---|---|
 | **Field Name** | The label/question shown during onboarding (e.g. "Business License Number"). Required. |
-| **Applicable In** | The property type this field belongs to. (Set automatically to your active property type.) |
+| **Applicable In** | The property type this field belongs to. In Single Mode this is locked to your one active property type. In [Multi Mode](./overview.md#single-mode-vs-multi-mode) you can instead choose **All Property Types** to apply the field everywhere, or pick one specific type. |
 | **Field Type** | The kind of input — see the table below. |
 | **Is Mandatory** | **Yes** = the field must be filled to complete onboarding; **No** = optional. |
 | **Status** | **Active** to use it now, or **Inactive** to keep it hidden for now. |
