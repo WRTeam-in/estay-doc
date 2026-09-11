@@ -52,7 +52,7 @@ In cPanel, open **File Manager** and navigate to either:
 
 ## Step 4: Upload the Zip File
 
-Upload the downloaded zip file named **`Code vX.X - upload this on server.zip`** into the folder from Step 3.
+extract the outer zip and upload the admin panel zip into the folder from Step 3.
 
 <!-- ![Upload Zip](/images/panel/install-upload-zip.png) -->
 
