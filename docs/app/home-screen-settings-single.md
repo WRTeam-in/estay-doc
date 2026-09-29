@@ -1,6 +1,6 @@
 ---
-id: home-screen-settings
-title: Configure Home Screen
+id: home-screen-settings-single
+title: Configure Home Screen for Single Mode
 sidebar_position: 10
 ---
 

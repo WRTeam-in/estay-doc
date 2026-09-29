@@ -1,12 +1,23 @@
 ---
 id: map-api-key
-title: Add Map API Key for Address
+title: Configure Map for Address
 sidebar_position: 7
 ---
 
-# Add Map API Key
 
-The app uses Google Maps for showing nearby locations of property. You need a Google Cloud API key with the **Maps SDK for Android** and **Maps SDK for iOS** enabled.
+
+# Configure Map for Address
+The app uses  Maps for showing nearby locations of property and Property listing with pin on map.
+
+ Project ships with **two map providers** — **Google Maps** and **OpenStreetMap (OSM)**. Pick one based on whether you want a feature-rich map (Google) or a free, no-key-required map (OSM).
+
+Switch between them via the `isGoogleMap` flag in `lib/core/configs/app_config.dart`:
+
+- **`isGoogleMap: false`** — uses **OpenStreetMap**. No API key needed, skip the rest of this doc.
+- **`isGoogleMap: true`** — uses **Google Maps**. Follow the setup below to create and configure the API key.
+
+## Steps to add Google Map API Key
+ You need a Google Cloud API key with the **Maps SDK for Android** and **Maps SDK for iOS** enabled.
 
 ## Step 1 — Open Google Cloud Console
 
