@@ -18,6 +18,11 @@ Payment gateways are configured **per country**. The list and the gateways you a
 | **Razorpay** | India and supported regions. | Key ID, Key Secret, Webhook Secret |
 | **Stripe** | Global card payments. | Publishable Key, Secret Key, Webhook Secret |
 | **Flutterwave** | Africa and supported regions. | Public Key, Secret Key, Encryption Key, Secret Hash |
+| **Paystack** | Africa and supported regions. | Public Key, Secret Key |
+
+:::info Paystack currency support
+Paystack accounts are tied to specific countries/currencies on Paystack's own side (typically African currencies plus USD) — it does **not** support every currency this platform supports (e.g. INR). Check your Paystack account's supported currencies before enabling it for a country.
+:::
 
 ---
 
@@ -35,7 +40,7 @@ The list shows every gateway configured for the **selected country**:
 
 | Column | Description |
 |---|---|
-| **Gateway** | The payment provider (Razorpay, Stripe, or Flutterwave). |
+| **Gateway** | The payment provider (Razorpay, Stripe, Flutterwave, or Paystack). |
 | **Country** | The country this gateway is configured for. |
 | **Mode** | **Test** (orange) for sandbox testing or **Live** (green) for real payments. |
 | **Active** | Whether this gateway is currently enabled for processing payments. |
@@ -50,7 +55,7 @@ Click the **Create / New** button at the top right of the page to open the gatew
 | Field | Description |
 |---|---|
 | **Country** | The country this gateway applies to. Defaults to your selected country. |
-| **Gateway Type** | Choose Razorpay, Stripe, or Flutterwave. Gateways already configured for the selected country are hidden, so each gateway can only be added once per country. |
+| **Gateway Type** | Choose Razorpay, Stripe, Flutterwave, or Paystack. Gateways already configured for the selected country are hidden, so each gateway can only be added once per country. |
 | **Mode** | Choose **Test** for sandbox credentials or **Live** for production credentials. |
 | **Active** | Toggle on to enable this gateway for processing payments. |
 
@@ -91,6 +96,14 @@ After selecting a **Gateway Type**, the matching credentials section appears. Lo
 | **Secret Key** | Flutterwave Dashboard → Settings → API. | Yes |
 | **Encryption Key** | Flutterwave Dashboard → Settings → API. | Yes |
 | **Secret Hash** | The hash you set in Flutterwave's webhook settings — it must match the `verif-hash` Flutterwave sends (see Step 6). | Yes |
+
+### Paystack
+
+| Field | Where to Find It | Required |
+|---|---|---|
+| **Public Key** | Paystack Dashboard → Settings → API Keys & Webhooks. | Yes |
+| **Secret Key** | Paystack Dashboard → Settings → API Keys & Webhooks. Also used to verify webhook signatures — Paystack has no separate webhook secret. | Yes |
+
 ![Gateway Credentials](/images/panel/gatewaystep3.png)
 
 :::tip
@@ -145,6 +158,7 @@ https://yourdomain.com/api/payments/webhook/stripe
 :::info How many webhooks each gateway needs
 - **Stripe** and **Flutterwave** — create **one** webhook each (the **Payments** URL). Refunds are confirmed automatically (instantly when issued, with the reconciliation check as backup), so **no refund webhook is needed**. Stripe issues a unique secret per endpoint and the platform stores one secret per gateway; Flutterwave supports only one webhook URL — so a single Payments webhook is the correct setup for both.
 - **Razorpay** — create the **Payments** webhook. You may **optionally** add the **Refunds** webhook too if you want refund statuses to update *instantly*; otherwise the 5-minute reconciliation completes them automatically. Razorpay lets you set the webhook secret yourself, so the **same Webhook Secret works for both** of its webhooks.
+- **Paystack** — create **one** webhook (the **Payments** URL). Paystack sends both payment and refund events to this same single endpoint automatically — there's no separate refund webhook and no event picklist to configure in Paystack's dashboard.
 :::
 
 ### Events to Subscribe To
@@ -155,9 +169,10 @@ https://yourdomain.com/api/payments/webhook/stripe
 | **Razorpay** | Refunds *(optional)* | `refund.created`, `refund.processed`, `refund.failed` |
 | **Stripe** | Payments *(only webhook needed)* | `checkout.session.completed`, `checkout.session.expired` |
 | **Flutterwave** | Payments *(only webhook needed)* | `charge.completed` |
+| **Paystack** | Payments & Refunds *(one webhook, all events)* | Nothing to select — Paystack sends every event to the single URL automatically. |
 
-:::info Refunds are handled automatically for Stripe & Flutterwave
-You don't subscribe to refund events for Stripe or Flutterwave. When you issue a refund from the admin panel, the platform confirms it with the provider in the same request and updates the status immediately; the reconciliation check covers the rare case where a provider reports the refund as still pending. Note that the customer's bank still takes the provider's standard **5–10 business days** to post the funds — that settlement time is set by the banks, not the platform.
+:::info Refunds are handled automatically for Stripe, Flutterwave & Paystack
+You don't subscribe to refund events for these three. When you issue a refund from the admin panel, the platform confirms it with the provider in the same request and updates the status immediately; the reconciliation check covers the rare case where a provider reports the refund as still pending. Note that the customer's bank still takes the provider's standard **5–10 business days** to post the funds — that settlement time is set by the banks, not the platform.
 :::
 
 ### Securing the Webhook (Signature Verification)
@@ -169,6 +184,7 @@ Each gateway signs its webhook requests so your platform can verify they're genu
 | **Razorpay** | `X-Razorpay-Signature` header | **Webhook Secret** |
 | **Stripe** | `Stripe-Signature` header | **Webhook Secret** |
 | **Flutterwave** | `verif-hash` header | **Secret Hash** |
+| **Paystack** | `x-paystack-signature` header | **Secret Key** — Paystack has no separate webhook secret, it signs with the same Secret Key you already entered. |
 
 :::warning Flutterwave Secret Hash
 For Flutterwave, the **Secret Hash** you enter here must be **exactly the same** value you set as the hash in Flutterwave's webhook settings. If they don't match, Flutterwave's notifications will be rejected.
@@ -203,7 +219,7 @@ Before accepting real payments, confirm the following for each gateway:
 1. **Mode** is set to **Live**.
 2. The credentials entered are your provider's **live** keys (not test/sandbox).
 3. The **payments** webhook is created in the provider's dashboard pointing at your **live** domain's URL (plus the optional Razorpay refunds webhook, if you use it).
-4. The **Webhook Secret / Secret Hash** in the provider matches what you saved here.
+4. The **Webhook Secret / Secret Hash** (or **Secret Key** for Paystack) in the provider matches what you saved here.
 5. The gateway is toggled **Active**.
 
 :::warning Test vs Live

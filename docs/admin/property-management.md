@@ -31,6 +31,7 @@ Click the **Edit** (pencil icon) button to open the property type configuration 
 | **Property Type Name** | The name of the property type (e.g., Hotel). |
 | **Description** | A brief description of what this property type entails. |
 | **Configure Tax** | Select taxes from the dropdown that should be applied to this property type. You can also click **+ Add New Tax** to create a tax on the fly. |
+| **Allow Entire Property Booking** | Turn on to let properties of this type be listed as a whole-unit rental (villa, entire apartment) instead of room-wise. This only makes the choice *available* in the property wizard — it doesn't force every property of this type to use it. See [Entire Property Listings](#entire-property-whole-unit-listings). |
 
 :::info Multi-mode: per-country, with commission shown
 In Multi Mode, this list only shows property types **enabled for the country** selected in the topbar — the **Edit** action includes an Active/Inactive toggle scoped to that country, so the same property type can be enabled in one country and not another. Each row also shows the count of active properties of that type and its resolved **commission rate** (the type-specific rate if one exists in [Commission Management](./commission-management.md), otherwise the country default — labeled accordingly).
@@ -136,6 +137,19 @@ Provide the foundational information for your property.
 :::info
 You can increase the Total Floors count later by editing the property. The floor count cannot be reduced if rooms already exist on the floors being removed — delete or reassign those rooms first from the Room Inventory page.
 :::
+
+### Entire Property (Whole-Unit) Listings
+
+If the selected **Property Type** allows it (enabled per country under **Settings → Property Types**), Step 1's General Information section shows a choice: list this property **room-wise** (customers book an individual room, the normal flow above) or as an **Entire Property** — customers book the whole villa/unit at once, for one nightly price.
+
+This choice is made **once, at creation, and can't be changed afterward** — to switch a property's mode later, create a new listing instead.
+
+Choosing **Entire Property** changes the rest of the wizard slightly:
+
+- Step 1 adds a **Max Guests** field — the whole property's guest capacity, used for search matching instead of a room count.
+- Step 3 still lets you add named rooms (Master Bedroom, Guest Room, etc.) for display purposes, with a **Quantity** field instead of a per-room price — but adds one single **Property Price** field for the whole listing, since guests book the entire property, not an individual room.
+- **Room Inventory** (numbered rooms like 101, 102) doesn't apply and is skipped entirely — see the note under [Room Inventory](./room-inventory.md).
+- The [Availability Calendar](./availability-calendar.md) shows one row for the whole property instead of one per room type.
 
 #### Step 2: Property Facilities
 ![Property Step 2](/images/panel/propertystep2.png)

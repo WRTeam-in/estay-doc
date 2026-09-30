@@ -39,7 +39,7 @@ The **edit** icon is only available on bookings that are still open (not Expired
 
 - **Records a manual payment** for a Pay At Property booking (cash or UPI, with a transaction ID for UPI).
 - **Confirms** a Pending booking, once it's paid.
-- **Checks a guest in** — this opens a mandatory room-selection step first; the booking only actually moves to Checked-in once specific rooms are assigned.
+- **Checks a guest in** — this opens a mandatory room-selection step first; the booking only actually moves to Checked-in once specific rooms are assigned. Guest documents (ID proof, etc.) can optionally be uploaded at this same step.
 - **Checks a guest out** — moves Checked-in to Completed.
 - **Cancels** a booking (Pending or Confirmed only), with a required reason.
 

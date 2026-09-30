@@ -17,8 +17,11 @@ The system has built-in integration for **Four** payment gateways:
 - **Razorpay**
 - **Paystack**
 
+Only these four can be added — pick the one that most closely matches your business needs.
 
-Only these four can be added — pick them which most closely match your business needs.
+:::info Paystack currency support
+Paystack accounts are tied to specific countries/currencies on Paystack's own side (typically African currencies plus USD) — check your Paystack account's supported currencies before relying on it for a country's payments.
+:::
 
 ## 1. Add and Configure a Gateway
 

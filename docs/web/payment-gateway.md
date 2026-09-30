@@ -10,13 +10,18 @@ Configure which payment gateways are available in the app and enter their API cr
 
 ## Supported Gateways
 
-The system has built-in integration for **three** payment gateways:
+The system has built-in integration for **four** payment gateways:
 
 - **Flutterwave**
 - **Stripe**
 - **Razorpay**
+- **Paystack**
 
-Only these three can be added — pick them which most closely match your business needs.
+Only these four can be added — pick the one that most closely matches your business needs.
+
+:::info Paystack currency support
+Paystack accounts are tied to specific countries/currencies on Paystack's own side (typically African currencies plus USD) — check your Paystack account's supported currencies before relying on it for a country's payments.
+:::
 
 ## 1. Add and Configure a Gateway
 

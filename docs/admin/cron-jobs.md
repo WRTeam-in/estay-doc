@@ -73,6 +73,8 @@ This runs the platform's scheduled tasks. That single command manages all of the
 | **Reconcile Pending Payments** | Every 5 minutes | Double-checks any still-pending payment directly with the payment gateway — the safety net for payments where a webhook was missed. |
 | **Sync Exchange Rates** | Once a day | Fetches the latest currency exchange rates for all active countries. |
 | **Process Scheduled Marketing Messages** | Every minute | Finds marketing notifications whose send time has arrived and **queues** them for delivery (the queue worker then sends them). |
+| **Sync External Calendars** | Every 15 minutes | If [Calendar Sync](./calendar-sync.md) is turned on, queues a sync job for every connected Airbnb/Booking.com calendar link. |
+| **iCal Background Worker** | Every minute | Processes queued calendar-sync jobs. This is a **separate, dedicated worker** from Cron 2 below — it only ever touches calendar-sync jobs, never your regular queue, and needs **no extra cron entry**: the scheduler (Cron 1) launches it automatically. |
 
 :::info Why this matters for payments
 **Reconcile Pending Payments** confirms a payment if its webhook didn't arrive. If the scheduler cron isn't running, a payment with a missing webhook could stay **pending indefinitely**. See [Payment Gateway Settings](./payment-settings.md) for how webhooks and reconciliation work together.
@@ -102,6 +104,10 @@ Go back to **Settings → System Configure → Cron Jobs** tab. The **Cron Statu
 
 - ✅ **Green** — the cron ran within the last 5 minutes and is healthy.
 - ❌ **Red** — the cron hasn't run recently. Re-check the cron entry in your hosting panel.
+
+:::info iCal Worker Status card
+If you've turned on [Calendar Sync](./calendar-sync.md), a fourth card — **iCal Worker Status** — appears here too, showing the same Active/Inactive health check for the dedicated calendar-sync worker described above. It only appears once Calendar Sync is enabled.
+:::
 
 You can also test end-to-end:
 

@@ -63,6 +63,28 @@ The detail view shows:
 
 ---
 
+## Creating a Booking Manually
+
+Click **Add Booking** to create a booking directly (e.g. for a phone/walk-in reservation), without the guest going through the normal search-and-pay flow.
+
+Alongside the usual property, room, dates, and guest details, you can apply a **manual discount**:
+
+| Field | Description |
+|---|---|
+| **Discount Type** | **Fixed amount** or **Percentage**. |
+| **Discount Value** | The amount or percentage to deduct from the booking total. |
+| **Discount Reason** | A short note explaining why the discount was given — shown later on the booking's detail view. |
+
+The applied discount and its reason are visible on the booking's detail page afterward, alongside the rest of the pricing breakdown.
+
+---
+
+## Checking In a Guest
+
+From a confirmed booking, use the **Check In** action to mark the stay as started. Along with any physical room assignment, you can optionally **upload guest documents** (ID proof, etc.) at this step — uploaded files are attached to the booking and remain visible on its detail page for later reference.
+
+---
+
 ## Cancelling a Booking
 
 To cancel a booking:

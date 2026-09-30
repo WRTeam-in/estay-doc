@@ -26,6 +26,19 @@ An 8-step wizard, the same shape as the admin's own property setup wizard — pr
 
 ---
 
+## Entire Property (Whole-Unit) Listings
+
+If the admin has enabled it for your property type and country, Step 1 offers a choice: list **room-wise** (guests book an individual room, the default) or as an **Entire Property** — guests book the whole villa/unit at once, for one nightly price. This choice is made **once, at creation, and can't be changed afterward** — create a new listing to switch modes.
+
+Choosing **Entire Property** changes the rest of the wizard slightly:
+
+- Step 1 adds a **Max Guests** field for the whole property's capacity.
+- Step 3 still lets you add named rooms (Master Bedroom, Guest Room, etc.) for display, with a **Quantity** field instead of a per-room price — plus one single **Property Price** field for the whole listing.
+- [Room Inventory](./room-inventory.md) doesn't apply and is skipped entirely.
+- Your [Availability Calendar](./availability-calendar.md) shows one row for the whole property instead of one per room type.
+
+---
+
 ## After Submitting
 
 Finishing step 8 sends the property straight into the admin's [Property Verification](/docs/admin/property-verification) queue — it starts as **Pending**, and stays invisible to guests until approved. Unlike single-mode's admin-created properties (which go live immediately), a partner-created property always needs that review first, no exceptions.

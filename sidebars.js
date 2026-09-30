@@ -25,6 +25,8 @@ const sidebars = {
         "admin/property-management",
         "admin/property-verification",      // multi-mode only
         "admin/room-inventory",
+        "admin/calendar-sync",
+        "admin/availability-calendar",       // single-mode only
         "admin/registration-fields",
         "admin/booking-management",
         "admin/reserved-bookings",           // multi-mode only
@@ -99,6 +101,7 @@ const sidebars = {
         // ── Room Management ──
         "partner/room-management",
         "partner/room-inventory",
+        "partner/calendar-sync",
 
         // ── Review Monitoring ──
         "partner/reviews",

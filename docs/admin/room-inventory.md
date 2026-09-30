@@ -23,6 +23,10 @@ The Room Inventory page is where you define and manage the actual physical rooms
 You must select a property from the top bar before the Room Inventory page shows any data.
 :::
 
+:::warning Not applicable for Entire Property (whole-unit) listings
+If the selected property is listed as an [Entire Property](./property-management.md#entire-property-whole-unit-listings), it has no numbered physical rooms to generate — guests book the whole unit, not a room within it. This page shows a "not applicable" state and the **+ Add Rooms** action is hidden for that property.
+:::
+
 ---
 
 ## Floor Setup

@@ -16,7 +16,7 @@ Confirmed and Checked-in bookings with a check-in date of today. Same booking in
 The **edit** action here does two things at once, in order:
 
 1. If payment is still outstanding (a Pay At Property booking), record the cash or UPI payment collected.
-2. Move the booking to **Checked-in** — this opens the same mandatory room-selection step as on the main Bookings page; the guest isn't marked checked in until specific rooms are assigned.
+2. Move the booking to **Checked-in** — this opens the same mandatory room-selection step as on the main Bookings page; the guest isn't marked checked in until specific rooms are assigned. You can optionally **upload guest documents** (ID proof, etc.) at the same step — they're attached to the booking and stay visible on its detail page afterward.
 
 **Download** gets the invoice.
 

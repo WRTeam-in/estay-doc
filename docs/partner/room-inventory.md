@@ -7,6 +7,10 @@ title: Room Inventory
 
 Generates and manages the actual, individually numbered rooms guests get assigned to at check-in — organized by floor. This is the step after setting up a [room offering](./room-management.md): a room type with pricing doesn't have any bookable rooms until you generate them here.
 
+:::warning Not applicable for Entire Property (whole-unit) listings
+If your selected property is listed as an [Entire Property](./adding-a-property.md#entire-property-whole-unit-listings), it has no numbered physical rooms to generate — guests book the whole unit, not a room within it. This page shows a "not applicable" state and the **+ Add Rooms** action is hidden.
+:::
+
 ---
 
 ## Generating Rooms
