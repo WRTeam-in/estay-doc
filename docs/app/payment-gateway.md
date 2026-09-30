@@ -10,13 +10,15 @@ Configure which payment gateways are available in the app and enter their API cr
 
 ## Supported Gateways
 
-The system has built-in integration for **three** payment gateways:
+The system has built-in integration for **Four** payment gateways:
 
 - **Flutterwave**
 - **Stripe**
 - **Razorpay**
+- **Paystack**
 
-Only these three can be added — pick them which most closely match your business needs.
+
+Only these four can be added — pick them which most closely match your business needs.
 
 ## 1. Add and Configure a Gateway
 

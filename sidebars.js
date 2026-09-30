@@ -146,6 +146,7 @@ const sidebars = {
         "app/contact-us",
         "app/about-us",
         "app/maintenance-mode",
+        "app/facebook-app-events",
         "app/change-app-version",
         "app/store-urls-force-update",
         "app/run-the-app",
