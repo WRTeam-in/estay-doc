@@ -93,8 +93,6 @@ If you previously deleted a room number and regenerate it, the system restores t
 
 Rooms are displayed as cards, grouped by floor in collapsible sections.
 
-![Room Inventory Grid](/images/panel/room-inventory-grid.png)
-
 Each card shows:
 
 | Information | Description |

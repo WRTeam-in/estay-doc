@@ -26,6 +26,7 @@ const sidebars = {
         "admin/property-verification",      // multi-mode only
         "admin/room-inventory",
         "admin/calendar-sync",
+        "admin/beds24-sync",
         "admin/availability-calendar",       // single-mode only
         "admin/registration-fields",
         "admin/booking-management",
@@ -66,6 +67,7 @@ const sidebars = {
         "admin/general-settings",
         "admin/notification-management",
         "admin/smtp-configurations",
+        "admin/whatsapp-messages",
         "admin/language",
         "admin/map-provider",
         "admin/api-currency-exchange",
@@ -102,6 +104,7 @@ const sidebars = {
         "partner/room-management",
         "partner/room-inventory",
         "partner/calendar-sync",
+        "partner/beds24-sync",
 
         // ── Review Monitoring ──
         "partner/reviews",

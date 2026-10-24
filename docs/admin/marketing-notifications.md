@@ -21,8 +21,6 @@ Notifications are sent and listed for your **currently selected country**. Switc
 
 In your admin dashboard, go to **Marketing > Notifications**. You'll see all past and scheduled messages.
 
-![Marketing Notifications](/images/panel/marketingstep1.png)
-
 ---
 
 ## Step 2: Send a Notification
