@@ -13,10 +13,10 @@ const config = {
   projectName: "estay-doc",
   deploymentBranch: "gh-pages",
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
   markdown: {
     hooks: {
-      onBrokenMarkdownImages: "warn",
+      onBrokenMarkdownLinks: "warn",
+      onBrokenMarkdownImages: "throw",
     },
   },
 
