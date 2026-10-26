@@ -13,9 +13,9 @@ After completing all configuration steps, run the project locally to verify ever
 
 Make sure you have completed:
 
-- [Setup](./setup) — Node.js installed, dependencies installed
-- [Domain URL](./domain-url) — Admin and web URLs configured
-- [Integrate Firebase](./integrate-firebase) — Firebase credentials added
+- [Setup](./setup.md) — Node.js installed, dependencies installed
+- [Domain URL](./domain-url.md) — Admin and web URLs configured
+- [Integrate Firebase](./integrate-firebase.md) — Firebase credentials added
 
 ---
 

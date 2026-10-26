@@ -76,9 +76,9 @@ Do **not** use `yarn` or `pnpm` — the project uses `package-lock.json`. Mixing
 
 Before running the project, you need to set up the required configuration:
 
-- **Admin panel URL** — [Domain URL](./domain-url)
-- **Firebase credentials** — [Integrate Firebase](./integrate-firebase)
-- **Website name & metadata** — [App Name](./app-name), [Change Meta Info](./change-meta-info)
+- **Admin panel URL** — [Domain URL](./domain-url.md)
+- **Firebase credentials** — [Integrate Firebase](./integrate-firebase.md)
+- **Website name & metadata** — [Web Name](./web-name.md), [Change Meta Info](./change-meta-info.md)
 
 Complete those steps first, then return here to run the project.
 
@@ -88,4 +88,4 @@ Complete those steps first, then return here to run the project.
 
 Once configuration is done, proceed to run the project:
 
-👉 [Run the Project](./run-the-project)
+👉 [Run the Project](./run-the-project.md)

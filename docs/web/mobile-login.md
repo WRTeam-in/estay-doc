@@ -11,7 +11,7 @@ eStay web supports phone number authentication via OTP (One-Time Password) using
 
 ## Prerequisites
 
-Firebase must be integrated first. See [Integrate Firebase](./integrate-firebase).
+Firebase must be integrated first. See [Integrate Firebase](./integrate-firebase.md).
 
 ---
 

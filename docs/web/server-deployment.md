@@ -92,7 +92,7 @@ If you prefer to deploy manually or need to troubleshoot, follow these steps to 
 
 #### 1. Configuration & Dependencies
 
-Ensure your `.env` file is correctly configured (see [System Configuration](./system-configuration.md)).
+Ensure your `.env` file is correctly configured (see [Configuration (.env)](./configuration.md)).
 
 ```bash
 # Install dependencies
